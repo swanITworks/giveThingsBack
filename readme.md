@@ -13,13 +13,13 @@ Magda conducted many studies and observations on the basis of which she prepared
 
 ----------------------------------------------------------------------------------
 
-#Main Task
+#Main Task:
 Create an application in accordance with the prototype.
 
 #What i did ?
 
 1) I created git repository on GitHub
-2) I installed all packages: Webpack, Babel, React, Sass and configured webpack.config.js
+2) I installed all packages: Webpack, Babel, React, React-Router, Sass and configured webpack.config.js
 3) I made folders structure of project.  
 
 
