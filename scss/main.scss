@@ -1,1 +1,18 @@
+@import "settings/fonts";
+@import "settings/reset";
+@import "settings/colors";
 
+@font-face {
+  font-family: "OpenSans";
+  src: local("OpenSans"), url("/assets/OpenSans-Regular.ttf"), format("ttf");
+
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: local("Merriweather"), url("/assets/Merriweather-Regular.ttf"), format("ttf");
+}
+
+body {
+  font-family: $font-base, sans-serif;
+};
