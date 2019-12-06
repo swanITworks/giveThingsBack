@@ -1,0 +1,13 @@
+
+#headerMainPhoto {
+  background-image: url('/assets/Home-Hero-Image.jpg');
+  width: 50%;
+  height: 95vh;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+}

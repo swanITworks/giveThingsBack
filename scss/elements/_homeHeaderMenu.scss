@@ -1,0 +1,22 @@
+.headerMenu {
+  width: 683px;
+  height: 95px;
+  margin-right: 5rem;
+  margin-top: 2rem;
+
+  .homeHeaderNavigateMenu {
+    display: flex;
+    justify-content: space-between;
+    li {
+      padding: 0.5rem;
+    }
+  }
+
+  .homeHeaderLogInMenu {
+    display: flex;
+    justify-content: flex-end;
+    li {
+      padding: 0.5rem;
+    }
+  }
+}

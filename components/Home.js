@@ -4,10 +4,10 @@ import HomeThreeColumns from "./HomeThreeColumns";
 
 function Home() {
     return (
-        <>
+        <div className='mainContainer'>
         <HomeHeader/>
         <HomeThreeColumns/>
-        </>
+        </div>
     )
 }
 

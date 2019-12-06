@@ -2,7 +2,9 @@
 @import "settings/reset";
 @import "settings/colors";
 
-@import "elements/header";
+@import "elements/homeHeader";
+@import "elements/homeHeaderMenu";
+@import "elements/homeHeaderStartHelp";
 
 @font-face {
   font-family: "OpenSans";
@@ -17,3 +19,6 @@
 body {
   font-family: $font-base, sans-serif;
 };
+
+.mainContainer {
+}
