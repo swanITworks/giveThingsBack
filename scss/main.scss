@@ -6,6 +6,8 @@
 @import "elements/homeHeaderMenu";
 @import "elements/homeHeaderStartHelp";
 @import "elements/homeThreeColumns";
+@import "elements/homeFourSteps";
+@import "elements/homeAboutUs";
 
 @font-face {
   font-family: "OpenSans";
@@ -31,3 +33,5 @@ body {
 .mainContainer {
   margin: auto;
 }
+
+
