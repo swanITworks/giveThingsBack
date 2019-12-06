@@ -5,20 +5,29 @@
 @import "elements/homeHeader";
 @import "elements/homeHeaderMenu";
 @import "elements/homeHeaderStartHelp";
+@import "elements/homeThreeColumns";
 
 @font-face {
   font-family: "OpenSans";
-  src: local("OpenSans"), url("/assets/OpenSans-Regular.ttf"), format("ttf");
+  src: local("OpenSans-Regular"), url("/assets/OpenSans-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "OpenSansLight";
+  src: local("OpenSans-Light"), url("/assets/OpenSans-Light.ttf") format("ttf");
 }
 
 @font-face {
   font-family: "Merriweather";
-  src: local("Merriweather"), url("/assets/Merriweather-Regular.ttf"), format("ttf");
+  src: local("Merriweather"), url("/assets/Merriweather-Regular.ttf") format("ttf");
 }
 
 body {
-  font-family: $font-base, sans-serif;
+  font-family: $font-base-light, sans-serif;
+  color: $mainFontColor;
+  width: 100vw;
 };
 
 .mainContainer {
+  margin: auto;
 }

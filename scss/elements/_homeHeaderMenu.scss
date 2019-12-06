@@ -1,5 +1,7 @@
+@import "../scss/settings/colors";
+
 .headerMenu {
-  width: 683px;
+  min-widthwidth: 40%;
   height: 95px;
   margin-right: 5rem;
   margin-top: 2rem;
@@ -7,14 +9,30 @@
   .homeHeaderNavigateMenu {
     display: flex;
     justify-content: space-between;
+
     li {
       padding: 0.5rem;
+
+      .menuButton {
+        text-decoration: none;
+        min-width: 10rem;
+        padding: 1rem;
+        min-height: 3rem;
+        margin: 1rem;
+        text-align: center;
+        align-self: center;
+      }
+
+      .active {
+        border: 1px solid $mainFontColor;
+      }
     }
   }
 
   .homeHeaderLogInMenu {
     display: flex;
     justify-content: flex-end;
+
     li {
       padding: 0.5rem;
     }

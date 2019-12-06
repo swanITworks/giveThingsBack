@@ -1,0 +1,15 @@
+@import "../settings/colors";
+
+.homeThreeColumns {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 384px;
+  background-color: $columnsColor;
+  align-items: center;
+  .column {
+    width: 20%;
+    align-items: center;
+    text-align: center;
+  }
+}

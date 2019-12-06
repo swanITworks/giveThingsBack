@@ -1,4 +1,7 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
+import * as Scroll from 'react-scroll';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 function HomeHeaderMenu() {
     return (
@@ -8,11 +11,11 @@ function HomeHeaderMenu() {
                 <li>Sign in</li>
             </ul>
             <ul className='homeHeaderNavigateMenu'>
-                <li>Start</li>
-                <li>What about?</li>
-                <li>About Us</li>
-                <li>Fundations and Organizations</li>
-                <li>Contact</li>
+                <li><NavLink exact to="/" activeClassName="active" className='menuButton'>Start</NavLink></li>
+                <li><Link exact to="/whatAbout" activeClassName="active" className='menuButton'>What about?</Link></li>
+                <li><Link exact to="/whatAbout" activeClassName="active" className='menuButton'>About Us</Link></li>
+                <li><Link exact to="/whatAbout" activeClassName="active" className='menuButton'>Fundations and Organizations</Link></li>
+                <li><Link exact to="/whatAbout" activeClassName="active" className='menuButton'>Contact</Link></li>
             </ul>
         </div>
     )
