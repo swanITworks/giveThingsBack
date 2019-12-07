@@ -1,11 +1,40 @@
+@import "../settings/colors";
+@import "../settings/fonts";
 
 .homeAboutUs {
+  display: flex;
   .leftSide {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    background-color: $backgroundFourSteps;
+    text-align: center;
+    h3 {
+      font-size: 2.4rem;
+    }
+    p {
+      margin-top: 2rem;
+      width:74%;
+      line-height: 2.3rem;
+      font-size: 1.8rem;
+    }
+    img{
+      margin-top: 1rem;
+    }
+    .signature {
+      background-size: cover;
+      align-self: flex-end;
+      margin-right: 16%;
+    }
   }
 
   .rightSide {
     background-image: url("/assets/People.jpg");
-    height: 100px;
+    width: 50vw;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
