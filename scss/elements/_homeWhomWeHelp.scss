@@ -32,20 +32,21 @@
     flex-wrap: wrap;
 
     .homeWhomHelpButton {
-      min-height: 6rem;
-      display: flex;
       margin-top: 1rem;
       margin-bottom: 1rem;
+      border: 1px solid $mainFontColor;
+      font-size: 1.5rem;
+      padding: 1rem;
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
 
       .button {
         font-family: OpenSansLight;
         text-decoration: none;
         color: $mainFontColor;
-        font-size: 2.4rem;
-        border: 1px solid $mainFontColor;
-        width: 14rem;
-        text-align: center;
-        padding: 1rem;
       }
 
       .active {

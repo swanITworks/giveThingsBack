@@ -11,13 +11,13 @@ function HomeWhomWeHelp() {
             </div>
             <div className='homeWhomHelpButtons'>
                 <div className='homeWhomHelpButton'>
-                    <NavLink exact to="/" activeClassName="active" className='button'>GIVE BACK STUFF</NavLink>
+                    <NavLink exact to="/" activeClassName="active" className='button'>FOUNDATIONS</NavLink>
                 </div>
                 <div className='homeWhomHelpButton'>
-                    <NavLink exact to="/" activeClassName="active" className='button'>GIVE BACK STUFF</NavLink>
+                    <NavLink exact to="/" activeClassName="active" className='button'>NON-GOVERNMENTAL ORGANIZATIONS</NavLink>
                 </div>
                 <div className='homeWhomHelpButton'>
-                    <NavLink exact to="/" activeClassName="active" className='button'>GIVE BACK STUFF</NavLink>
+                    <NavLink exact to="/" activeClassName="active" className='button'>LOCAL COLLECTION</NavLink>
                 </div>
             </div>
             <div className='homeWhomHelpText'>

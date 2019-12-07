@@ -9,6 +9,7 @@
 @import "elements/homeFourSteps";
 @import "elements/homeAboutUs";
 @import "elements/homeWhomWeHelp";
+@import "elements/homeContactUs";
 
 @font-face {
   font-family: "OpenSans";
@@ -19,6 +20,12 @@
   font-family: "OpenSansLight";
   src: local("OpenSans-Light"), url("/assets/OpenSans-Light.ttf") format("ttf");
 }
+
+@font-face {
+  font-family: "OpenSansSemiBold";
+  src: local("OpenSans-SemiBold"), url("/assets/OpenSans-SemiBold.ttf") format("ttf");
+}
+
 
 @font-face {
   font-family: "Merriweather";
