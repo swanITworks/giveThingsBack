@@ -1,9 +1,9 @@
 import React from "react";
 
-function HomeWhomHelpListElement() {
+function HomeWhomHelpListElement(props) {
     return (
         <>
-            <p>printing all element of list</p>
+            <li>{props.name}{props.description}{props.place}</li>
         </>
     )
 }

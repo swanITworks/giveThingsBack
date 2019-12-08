@@ -10,7 +10,6 @@
   }
 
 
-
   .content {
     display: flex;
     flex-direction: column;
@@ -115,7 +114,8 @@
   right: 1rem;
   font-size: 1.1rem;
   font-family: $font-base;
-  img{
+
+  img {
     margin-left: 1rem;
   }
 }
