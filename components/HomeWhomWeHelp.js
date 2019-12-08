@@ -3,7 +3,6 @@ import {NavLink} from "react-router-dom";
 import HomeWhomWeHelpList from "./HomeWhomWeHelpList";
 import firebase from "../config.js"
 
-
 const db = firebase.firestore();
 
 const useFoundations = () => {
@@ -23,8 +22,47 @@ const useFoundations = () => {
     return foundations
 };
 
+const useOrganizations = () => {
+    const [organizations, setOrganizations] = useState([]);
+
+    useEffect(() => {
+        db
+            .collection('organizations')
+            .onSnapshot((snapshot => {
+                    const newOrganizations = snapshot.docs.map((doc) => ({
+                        id: doc.id, ...doc.data()
+                    }));
+                    setOrganizations(newOrganizations)
+                }
+            ))
+    }, []);
+    return organizations
+};
+
+const useLocals = () => {
+    const [locals, setLocals] = useState([]);
+
+    useEffect(() => {
+        db
+            .collection('locals')
+            .onSnapshot((snapshot => {
+                    const newLocals = snapshot.docs.map((doc) => ({
+                        id: doc.id, ...doc.data()
+                    }));
+                    setLocals(newLocals)
+                }
+            ))
+    }, []);
+    return locals
+};
+
 const HomeWhomWeHelp = () => {
+
+    const [whomHelp, setWhomHelp] = useState('foundations');
+
     const foundations = useFoundations();
+    const organizations = useOrganizations();
+    const locals = useLocals();
 
     return (
         <div className='homeWhomWeHelp'>
@@ -34,14 +72,24 @@ const HomeWhomWeHelp = () => {
             </div>
             <div className='homeWhomHelpButtons'>
                 <div className='homeWhomHelpButton'>
-                    <NavLink exact to="/" activeClassName="active" className='button'>FOUNDATIONS</NavLink>
+                    <button onClick={() => {
+                        setWhomHelp('foundations')
+                    }} className='button'>FOUNDATIONS
+                    </button>
                 </div>
                 <div className='homeWhomHelpButton'>
-                    <NavLink exact to="/" activeClassName="active" className='button'>NON-GOVERNMENTAL
-                        ORGANIZATIONS</NavLink>
+                    <button onClick={() => {
+                        setWhomHelp('organizations')
+                    }} className='button'>NON-GOVERNMENTAL
+                        ORGANIZATIONS
+                    </button>
                 </div>
                 <div className='homeWhomHelpButton'>
-                    <NavLink exact to="/" activeClassName="active" className='button'>LOCAL COLLECTION</NavLink>
+                    <button onClick={() => {
+                        setWhomHelp('locals')
+                    }} className='button'>LOCAL
+                        COLLECTION
+                    </button>
                 </div>
             </div>
             <div className='homeWhomHelpText'>
@@ -49,7 +97,9 @@ const HomeWhomWeHelp = () => {
                     check
                     what they do, who they help and what they need.</p>
             </div>
-            <HomeWhomWeHelpList data={foundations}/>
+            {(whomHelp === 'foundations') ? <HomeWhomWeHelpList data={foundations}/> : null}
+            {(whomHelp === 'organizations') ? <HomeWhomWeHelpList data={organizations}/> : null}
+            {(whomHelp === 'locals') ? <HomeWhomWeHelpList data={locals}/> : null}
         </div>
     )
 }
