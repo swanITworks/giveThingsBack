@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./components/Home";
+import LogIn from "./components/Login";
 import {
     HashRouter,
     Route,
@@ -13,6 +14,7 @@ function App() {
         <HashRouter>
             <>
             <Route exact path='/' component={Home} />
+            <Route exact path='/logIn' component={LogIn} />
             </>
         </HashRouter>
     )

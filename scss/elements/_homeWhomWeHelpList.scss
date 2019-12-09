@@ -1,0 +1,41 @@
+@import "../settings/colors";
+@import "../settings/fonts";
+
+.homeWhomWeHelpList {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+
+  li {
+    border-bottom: solid 1px $mainFontColor;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    .name {
+      font-family: $font-alt-light;
+      font-size: 1.7rem;
+    }
+
+    .stuff {
+      font-size: 1.1rem;
+      font-family: $font-alt-light;
+    }
+
+    .mission {
+      margin-top: 0.3rem;
+      font-size: 1.1rem;
+      font-family: $font-alt-lightItalic;
+    }
+
+  }
+
+  .buttons {
+    align-self: center;
+
+    button {
+      padding: 1rem;
+    }
+  }
+}

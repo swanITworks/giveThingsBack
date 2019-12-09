@@ -2,7 +2,7 @@ import React from "react";
 
 function HomeContactUs() {
     return (
-        <div className='homeContactUs image'>
+        <div name='contactUs' className='homeContactUs image'>
             <div className='content'>
                 <h3>Contact with us</h3>
                 <img src='../assets/Decoration.svg'/>

@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 function HomeFourSteps() {
     return (
-        <div className='homeFourSteps'>
+        <div name='fourSteps' className='homeFourSteps'>
             <div className='headerFourSteps'>
                 <h2>Four simple steps are enough.</h2>
                 <img src='../assets/Decoration.svg'/>

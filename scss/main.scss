@@ -10,6 +10,7 @@
 @import "elements/homeAboutUs";
 @import "elements/homeWhomWeHelp";
 @import "elements/homeContactUs";
+@import "elements/homeWhomWeHelpList";
 
 @font-face {
   font-family: "OpenSans";
@@ -30,6 +31,16 @@
 @font-face {
   font-family: "Merriweather";
   src: local("Merriweather"), url("/assets/Merriweather-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "MerriweatherLight";
+  src: local("Merriweather-Light"), url("/assets/Merriweather-Light.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "MerriweatherLightItalic";
+  src: local("Merriweather-LightItalic"), url("/assets/Merriweather-LightItalic.ttf") format("ttf");
 }
 
 body {
