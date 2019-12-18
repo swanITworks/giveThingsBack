@@ -14,8 +14,8 @@ function HomeHeaderStartHelp() {
             <h2>Give back stuff to good hands.</h2>
             <img src='../assets/Decoration.svg'/>
             <div className='homeHeaderStartHelpButtons'>
-                <NavLink exact to="/" activeClassName="active" className='button'>GIVE BACK STUFF</NavLink>
-                <NavLink exact to="/" activeClassName="active" className='button'>ORGANIZE COLLECTION</NavLink>
+                <NavLink exact to="/" activeClassName="active" className='buttonLink'><div className='button'><div>GIVE BACK</div><div> STUFF</div></div></NavLink>
+                <NavLink exact to="/" activeClassName="active" className='buttonLink'><div className='button'><div>ORGANIZE</div><div>COLLECTION</div></div></NavLink>
             </div>
         </div>
     )

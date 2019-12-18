@@ -1,21 +1,70 @@
-import React from "react";
+import React, {useState} from "react";
 import {NavLink} from "react-router-dom";
 import * as Scroll from 'react-scroll';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import {Link, Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll'
+import { HashLink } from 'react-router-hash-link';
+function HomeHeaderMenu(props) {
 
-function HomeHeaderMenu() {
+    const checkIsLogin = (check) => {
+        if (check === false) {
+            return (
+                <>
+                    <li><NavLink exact to="/logIn" activeClassName="active" className='menuButton'>Log in</NavLink></li>
+                    <li><NavLink exact to="/signIn" activeClassName="active" className='menuButton'>Sign in</NavLink>
+                    </li>
+                </>
+            )
+        } else if (check === true) {
+            return (<>
+                    <li>chujowyEmail</li>
+                    <li><NavLink exact to="/" activeClassName="active" className='menuButton'>Give Back Stuff</NavLink>
+                    </li>
+                    <li><NavLink onClick={props.logOutHandler} exact to="/logOut" activeClassName="active"
+                                 className='menuButton'>Log Out</NavLink></li>
+                </>
+            )
+        }
+    };
+
     return (
         <div className='headerMenu'>
             <ul className='homeHeaderLogInMenu'>
-                <li><NavLink exact to="/logIn" activeClassName="active" className='menuButton' >Log in</NavLink></li>
-                <li><NavLink exact to="/signIN" activeClassName="active" className='menuButton'>Sign in</NavLink></li>
+                {checkIsLogin(props.isLogIn)}
             </ul>
             <ul className='homeHeaderNavigateMenu'>
-                <li><NavLink exact to="/" activeClassName="active" className='menuButton'>Start</NavLink></li>
-                <li><Link exact to="fourSteps" activeClassName="active" className='menuButton'>What about?</Link></li>
-                <li><Link exact to="aboutUs" activeClassName="active" className='menuButton'>About Us</Link></li>
-                <li><Link exact to="whomWeHelp" activeClassName="active" className='menuButton'>Fundations and Organizations</Link></li>
-                <li><Link exact to="contactUs" activeClassName="active" className='menuButton' spy={true} smooth={true} duration={500}>Contact</Link></li>
+                {props.location === '/' ?
+                    <>
+                        <li><NavLink exact to="/" activeClassName="active" className='menuButton'>Start</NavLink></li>
+                        <li><Link exact to="fourSteps" activeClassName="active" className='menuButton' spy={true}
+                                  smooth={true}
+                                  duration={500}>What
+                            about?</Link></li>
+                        <li><Link exact to="aboutUs" activeClassName="active" className='menuButton' spy={true}
+                                  smooth={true}
+                                  duration={500}>About Us</Link>
+                        </li>
+                        <li><Link exact to="whomWeHelp" activeClassName="active" className='menuButton' spy={true}
+                                  smooth={true}
+                                  duration={500}>Fundations and
+                            Organizations</Link></li>
+                        <li><Link exact to="contactUs" activeClassName="active" className='menuButton' spy={true}
+                                  smooth={true}
+                                  duration={500}>Contact</Link></li>
+                    </>
+                    :
+                    <>
+                        <li><NavLink exact to="/" activeClassName="active" className='menuButton'>Start</NavLink></li>
+                        <li><HashLink to="/#fourSteps" activeClassName="active" className='menuButton'>What
+                            about?</HashLink></li>
+                        <li><Link exact to="aboutUs" activeClassName="active" className='menuButton'>About Us</Link>
+                        </li>
+                        <li><Link exact to="whomWeHelp" activeClassName="active" className='menuButton'>Fundations and
+                            Organizations</Link></li>
+                        <li><Link exact to="contactUs" activeClassName="active" className='menuButton' spy={true}
+                                  smooth={true}
+                                  duration={500}>Contact</Link></li>
+                    </>
+                }
             </ul>
         </div>
     )

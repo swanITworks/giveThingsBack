@@ -27,15 +27,17 @@ function HomeWhomWeHelpList(props) {
             let toShow = [];
             for (let j = 1; j <= i; j++) {
 
-                toShow.push(<button key={j}>{j}</button>);
+                toShow.push(<button key={j} id={j} onClick={(e)=>{showSites(sites)}}>{j}</button>);
             }
             return toShow.map(item => {
                 return item
             })
         };
 
-        const showSites = (items) => {
-            const [site1, site2] = items;
+        const showSites = (items,val) => {
+            items.map(item=>console.log(item));
+
+            const [site1, site2, site3] = items;
             return site1.map(item => {
                 return <HomeWhomHelpListElement key={item.id} name={item.name} place={item.place} description={item.description}/>
             })
@@ -56,7 +58,7 @@ function HomeWhomWeHelpList(props) {
 
             return (
                 <>
-                    {showSites(sites)}
+                    {showSites(sites,quantityOfSites)}
                     <div className='buttons'>
                     {showButtons(quantityOfSites)}
                     </div>

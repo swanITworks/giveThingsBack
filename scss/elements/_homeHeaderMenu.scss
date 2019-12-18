@@ -1,40 +1,49 @@
 @import "../scss/settings/colors";
 
 .headerMenu {
-  min-widthwidth: 40%;
   height: 95px;
+  display: flex;
+  flex-direction: column;
   margin-right: 5rem;
   margin-top: 2rem;
 
   .homeHeaderNavigateMenu {
+    margin-top: 1rem;
     display: flex;
-    justify-content: space-between;
-
-    li {
-      padding: 0.5rem;
-
-      .menuButton {
-        text-decoration: none;
-        min-width: 10rem;
-        padding: 1rem;
-        min-height: 3rem;
-        margin: 1rem;
-        text-align: center;
-        align-self: center;
-      }
-
-      .active {
-        border: 1px solid $mainFontColor;
-      }
-    }
-  }
-
-  .homeHeaderLogInMenu {
-    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
 
     li {
       padding: 0.5rem;
+      .menuButton {
+        text-decoration: none;
+        padding: 1rem;
+        color: $mainFontColor;
+      }
+      .active {
+        border: 1px solid $mainFontColor;
+        color: $mainFontColor;
+      }
+    }
+  }
+  .homeHeaderLogInMenu {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.8rem;
+
+    li {
+      padding: 0.5rem;
+      .menuButton {
+        text-decoration: none;
+        padding: 1rem;
+        color: $mainFontColor;
+      }
+      .active {
+        color: $mainFontColor;
+      }
+    }
+    li:last-child{
+      border: 1px solid $columnsColor;
     }
   }
 }

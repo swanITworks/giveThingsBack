@@ -4,10 +4,11 @@
 .homeHeaderStartHelp {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  min-height: 60%;
   align-items: center;
+  height: 80%;
   justify-content: center;
+  align-self: flex-end;
+  margin-right: 7rem;
 
   h1 {
     font-size: 2.4rem;
@@ -23,24 +24,27 @@
     margin-top: 1.5rem;
     display: flex;
 
-    .button {
+    .buttonLink {
       font-family: OpenSansLight;
       text-decoration: none;
       color: $mainFontColor;
-      min-width: 14rem;
-      padding: 1rem;
-      min-height: 5rem;
-      margin: 1rem;
       font-size: 2.4rem;
-      border: 1px solid $mainFontColor;
-      text-align: center;
-      align-self: center;
 
+    }
+
+    .button {
+      border: 1px solid $mainFontColor;
+      padding: 1rem;
+      margin: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      min-width: 15rem;
     }
 
     .active {
       font-family: OpenSansLight;
-
     }
   }
 

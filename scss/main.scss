@@ -1,7 +1,6 @@
 @import "settings/fonts";
 @import "settings/reset";
 @import "settings/colors";
-
 @import "elements/homeHeader";
 @import "elements/homeHeaderMenu";
 @import "elements/homeHeaderStartHelp";
@@ -11,6 +10,9 @@
 @import "elements/homeWhomWeHelp";
 @import "elements/homeContactUs";
 @import "elements/homeWhomWeHelpList";
+@import "elements/logIn";
+@import "elements/singIn";
+@import "elements/logOut";
 
 @font-face {
   font-family: "OpenSans";
