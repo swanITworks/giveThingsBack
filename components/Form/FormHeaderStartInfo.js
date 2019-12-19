@@ -14,21 +14,21 @@ function FormHeaderStartInfo() {
             <img src='../../assets/Decoration.svg'/>
             <h2>4 steps are enough:</h2>
             <div className='formHeaderStartInfoSteps'>
-                <div className='rectangle'>
+                <div className='diamond'>
                     <h2>1</h2>
                     <p>Choose stuff</p>
                 </div>
-                <div className='rectangle'>
+                <div className='diamond'>
                     <h2>2</h2>
                     <p>Pack to bag</p>
                 </div>
-                <div className='rectangle'>
+                <div className='diamond'>
                     <h2>3</h2>
-                    <p>Choose foundation</p>
+                    <p>Choose <br/>foundation</p>
                 </div>
-                <div className='rectangle'>
+                <div className='diamond'>
                     <h2>4</h2>
-                    <p>Order collection</p>
+                    <p>Order <br/>collection</p>
                 </div>
             </div>
         </div>
