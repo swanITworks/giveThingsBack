@@ -17,7 +17,7 @@ function HomeHeaderMenu(props) {
         } else if (check === true) {
             return (<>
                     <li>chujowyEmail</li>
-                    <li><NavLink exact to="/" activeClassName="active" className='menuButton'>Give Back Stuff</NavLink>
+                    <li><NavLink exact to="/form" activeClassName="active" className='menuButton'>Give Back Stuff</NavLink>
                     </li>
                     <li><NavLink onClick={props.logOutHandler} exact to="/logOut" activeClassName="active"
                                  className='menuButton'>Log Out</NavLink></li>

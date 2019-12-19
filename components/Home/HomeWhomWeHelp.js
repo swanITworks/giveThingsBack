@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import HomeWhomWeHelpList from "./HomeWhomWeHelpList";
-import firebase from "../config.js"
+import firebase from "../../config.js"
 
 const db = firebase.firestore();
 
@@ -68,7 +68,7 @@ const HomeWhomWeHelp = () => {
         <div name='whomWeHelp' className='homeWhomWeHelp'>
             <div className='headerFourSteps'>
                 <h2>Whom we help?</h2>
-                <img src='../assets/Decoration.svg'/>
+                <img src='../../assets/Decoration.svg'/>
             </div>
             <div className='homeWhomHelpButtons'>
                 <div className='homeWhomHelpButton'>

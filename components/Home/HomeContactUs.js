@@ -5,7 +5,7 @@ function HomeContactUs() {
         <div name='contactUs' className='homeContactUs image'>
             <div className='content'>
                 <h3>Contact with us</h3>
-                <img src='../assets/Decoration.svg'/>
+                <img src='../../assets/Decoration.svg'/>
                 <form>
                     <div className='topOfForm'>
                         <label>Write your name<input type='name' placeholder='name'/></label>
@@ -24,8 +24,8 @@ function HomeContactUs() {
                 Copyright by Coders Lab
             </div>
             <div className='icons'>
-                <img src='../assets/Facebook.svg'/>
-                <img src='../assets/Instagram.svg'/>
+                <img src='../../assets/Facebook.svg'/>
+                <img src='../../assets/Instagram.svg'/>
             </div>
         </div>
 

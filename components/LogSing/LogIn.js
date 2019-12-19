@@ -1,5 +1,5 @@
 import React from "react";
-import HomeHeaderMenu from "./HomeHeaderMenu";
+import HomeHeaderMenu from "../Home/HomeHeaderMenu";
 import {NavLink} from "react-router-dom";
 
 function LogIn(props) {
@@ -8,7 +8,7 @@ function LogIn(props) {
             <HomeHeaderMenu isLogIn = {props.isLogIn} logInHandler={props.logInHandler}/>
             <div className='logInHeader'>
                 <h1>Log In</h1>
-                <img src='../assets/Decoration.svg'/>
+                <img src='../../assets/Decoration.svg'/>
             </div>
             <form>
                 <div className='logInBox'>

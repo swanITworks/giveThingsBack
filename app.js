@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import Home from "./components/Home";
-import LogIn from "./components/LogIn";
-import SignIn from "./components/SingIn";
-import LogOut from './components/LogOut';
+import Home from "./components/Home/Home";
+import LogIn from "./components/LogSing/LogIn";
+import SignIn from "./components/LogSing/SingIn";
+import LogOut from './components/LogSing/LogOut';
+import Form from './components/Form/Form';
 
 import {
     HashRouter,
@@ -38,6 +39,13 @@ function App() {
                 </Route>
                 <Route exact path='/logOut'>
                     <LogOut isLogIn={isLogIn}/>
+                </Route>
+                <Route exact path='/form'>
+                    {isLogIn === true ?
+                        <Form isLogIn={isLogIn} logOutHandler={logOutHandler}/>
+                    :
+                        <LogIn isLogIn={isLogIn} logInHandler={logInHandler}/>
+                    }
                 </Route>
             </>
         </HashRouter>

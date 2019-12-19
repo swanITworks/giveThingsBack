@@ -1,0 +1,36 @@
+@import "../../settings/colors";
+@import "../../settings/fonts";
+
+.formHeaderStartInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80%;
+  justify-content: center;
+  align-self: flex-end;
+  margin-right: 7rem;
+
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+    line-height: 1.5;
+  }
+
+  img {
+    margin: 1rem;
+  }
+  .formHeaderStartInfoSteps {
+    display: flex;
+    flex-direction: row;
+    .rectangle {
+      border: 1px solid $mainFontColor;
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+}
+

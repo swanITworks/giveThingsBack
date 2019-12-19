@@ -1,7 +1,7 @@
-@import "../settings/colors";
-@import "../settings/fonts";
+@import "../../settings/colors";
+@import "../../settings/fonts";
 
-.logOut {
+.logIn {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -56,19 +56,35 @@
     margin: 1rem;
   }
 
-  .button {
-    padding: 1rem;
-    margin: 1rem;
-    font-family: OpenSansLight;
-    text-decoration: none;
-    color: $mainFontColor;
-    min-width: 3rem;
-    text-align: center;
-    border: 1px solid $mainFontColor;
-  }
+  .logInButtons {
+    width: 28rem;
+    display: flex;
+    justify-content: space-between;
 
-  .active {
-    font-family: OpenSansLight;
+    .buttonLink {
+      font-family: OpenSansLight;
+      text-decoration: none;
+      color: $mainFontColor;
+      font-size: 2.4rem;
+    }
+
+    .button {
+      padding: 1rem;
+      margin: 1rem;
+      font-family: OpenSansLight;
+      text-decoration: none;
+      color: $mainFontColor;
+      min-width: 3rem;
+      text-align: center;
+    }
+
+    .button:nth-child(2) {
+      border: 1px solid $mainFontColor;
+    }
+
+    .active {
+      font-family: OpenSansLight;
+    }
   }
 }
 
