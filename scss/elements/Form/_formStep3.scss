@@ -1,9 +1,11 @@
 @import "../../settings/colors";
 @import "../../settings/fonts";
+@import "../../settings/colors";
+@import "../../settings/fonts";
 
-.FormStep1Warning {
+.FormStep3Warning {
   background-color: $columnsColor;
-  padding: 2rem 4rem;
+  padding: 1.15rem 4rem;
 
   h2 {
     font-size: 2.25rem;
@@ -18,7 +20,7 @@
   }
 }
 
-.Step1 {
+.Step3 {
   background-image: url('/assets/Background-Form.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,26 +44,45 @@
     margin-bottom: 2.5rem;
   }
 
-  li {
-    height: 2rem;
-    margin-bottom: 2rem;
+  h3 {
+    font-size: 1.5rem;
+    font-family: $font-base-semi-bold;
+    margin-bottom: 2.5rem;
+  }
 
-    label {
-      font-size: 1.5rem;
-      font-family: $font-base-light;
-      margin-left: 0.5rem;
+  select {
+    font-size: 1.5rem;
+    font-family: $font-base-light;
+    margin-left: 0.5rem;
+    margin-bottom: 2.5rem;
+
+    .hide {
+      display: none;
     }
   }
 
-  .button {
-    justify-self: flex-end;
-    padding: 1.5rem 2rem;
+  input {
+    width: 37rem;
+    height: 2rem;
     border: 1px solid $mainFontColor;
-    max-width: 10rem;
+    line-height: 2.3rem;
     font-size: 1.5rem;
-    font-family: $font-base-light;
+    font-family: OpenSansLight;
   }
-  select {
-    
+
+  .buttons {
+    display: flex;
+
+    .button {
+      justify-self: flex-end;
+      padding: 1.5rem 2rem;
+      border: 1px solid $mainFontColor;
+      max-width: 10rem;
+      min-width: 10rem;
+      font-size: 1.5rem;
+      font-family: $font-base-light;
+      margin-right: 2rem;
+      text-align: center;
+    }
   }
 }

@@ -2,6 +2,8 @@
 @import "../../settings/fonts";
 
 .formSteps {
-  display: flex;
-  flex-direction: column;
+  .steps {
+    display: flex;
+    flex-direction: column;
+  }
 }
