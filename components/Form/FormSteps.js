@@ -6,8 +6,9 @@ import FormStep4 from "./FormStep4";
 
 function FormSteps() {
 
-    const [step, setStep] = useState(2);
-    const [selectedOption, setSelectedOption] = useState('option1');
+    const [step, setStep] = useState(3);
+    const [selectedOptionStep1, setSelectedOptionStep1] = useState('');
+    const [selectedOptionStep3, setSelectedOptionStep3] = useState('');
 
     const handlerStepUp = () => {
         if (step < 4) {
@@ -25,8 +26,14 @@ function FormSteps() {
         }
     };
 
-    const handlerSelect = (e) => {
-        setSelectedOption(e.target.value)
+    const handlerSelectStep1 = (e) => {
+        setSelectedOptionStep1(e.target.id);
+        console.log(e.target.id);
+    };
+
+    const handlerSelectStep3 = (e) => {
+        setSelectedOptionStep3(e.target.id);
+        console.log(e.target.id);
     };
 
     const handlerSubmit = (e) => {
@@ -35,20 +42,17 @@ function FormSteps() {
 
     const showsStep = (number) => {
         if (number === 1) {
-            return <FormStep1 handlerSelect={handlerSelect} selectedOption={selectedOption}
+            return <FormStep1 handlerSelectStep1={handlerSelectStep1} selectedOptionStep1={selectedOptionStep1}
                               handlerStepUp={handlerStepUp}/>
         }
         if (number === 2) {
-            return <FormStep2 handlerSelect={handlerSelect} selectedOption={selectedOption}
-                              handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown}/>
+            return <FormStep2 handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown}/>
         }
         if (number === 3) {
-            return <FormStep3 handlerSelect={handlerSelect} selectedOption={selectedOption}
-                              handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown}/>
+            return <FormStep3 handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown} selectedOptionStep3={selectedOptionStep3} handlerSelectStep3={handlerSelectStep3}/>
         }
         if (number === 4) {
-            return <FormStep4 handlerSelect={handlerSelect} selectedOption={selectedOption}
-                               handlerStepDown={handlerStepDown}/>
+            return <FormStep4 handlerStepDown={handlerStepDown}/>
         }
     };
 

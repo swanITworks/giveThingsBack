@@ -2,9 +2,6 @@ import React, {useState} from "react";
 
 function FormStep4(props) {
 
-    const selectedOption = props.selectedOption;
-    const handlerSelect = props.handlerSelect;
-
     return (
         <>
             <div className='FormStep4Warning'>
@@ -34,7 +31,6 @@ function FormStep4(props) {
                             </ul>
                         </div>
                     </div>
-
                 </div>
                 <div className='buttons'>
                     <button className='button' onClick={props.handlerStepDown}>Back</button>

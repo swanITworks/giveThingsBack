@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 
 const options = [
-    {label: 1},
-    {label: 2},
-    {label: 3},
-    {label: 4},
-    {label: 5},
+    {label: 'London'},
+    {label: 'Manchester'},
+    {label: 'Liverpool'},
+    {label: 'Leeds'},
+    {label: 'Blackpool'},
 ];
 
-function MySelect() {
+function FormStep3SelectTowns() {
     const [isClicked, setIsClicked] = useState(false);
     const [selected, setSelected] = useState('choose');
     const handlerShowOptions = () => {
@@ -22,11 +22,11 @@ function MySelect() {
     const select = {
         border: '1px solid black',
         padding: '0.5rem',
-        marginLeft: '0.5rem',
         width: '15rem',
         display: 'flex',
         justifyContent: 'space-between',
         cursor: 'pointer',
+        marginBottom:'1rem',
     };
 
     const arrow = {
@@ -78,9 +78,11 @@ function MySelect() {
                 border: '1px solid black',
                 alignItems: 'flexEnd',
                 justifyContent: 'flexEnd',
-                marginTop: '0.5rem',
                 position: 'absolute',
-                transform: 'translateY(3rem)',
+                transform: 'translateY(0.0rem)',
+                width: '15rem',
+                backgroundColor: '#F0F1F1',
+                zIndex: 1,
             }}><ShowOptions handlerSelect={(e) => {
                 handlerTwoFunctions(e.target)
             }}/></div> : null}
@@ -88,4 +90,4 @@ function MySelect() {
     )
 }
 
-export default MySelect;
+export default FormStep3SelectTowns;

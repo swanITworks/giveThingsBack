@@ -1,9 +1,10 @@
 import React, {useState} from "react";
+import MyRadio from "./FormMyRadio";
 
 function FormStep1(props) {
 
-    const selectedOption = props.selectedOption;
-    const handlerSelect = props.handlerSelect;
+    const handlerSelectStep1 = props.handlerSelectStep1;
+    const selectedOptionStep1 = props.selectedOptionStep1;
 
     return (
         <>
@@ -16,23 +17,11 @@ function FormStep1(props) {
                     <p>Step 1/4</p>
                     <h2>Choose what do you want to get back:</h2>
                     <ul>
-                        <li><input type='radio' value='option1' name='chooseStuff'
-                                   checked={selectedOption === 'option1'}
-                                   onClick={handlerSelect}/><label className='container'>clothes that can be used
-                            again</label></li>
-                        <li><input type='radio' value='option2' name='chooseStuff'
-                                   checked={selectedOption === 'option2'}
-                                   onClick={handlerSelect}/><label className='container'>clothes to throw away</label>
-                        </li>
-                        <li><input type='radio' value='option3' name='chooseStuff'
-                                   checked={selectedOption === 'option3'}
-                                   onClick={handlerSelect}/><label className='container'>toys</label></li>
-                        <li><input type='radio' value='option4' name='chooseStuff'
-                                   checked={selectedOption === 'option4'}
-                                   onClick={handlerSelect}/><label className='container'>books</label></li>
-                        <li><input type='radio' value='option5' name='chooseStuff'
-                                   checked={selectedOption === 'option5'}
-                                   onClick={handlerSelect}/><label className='container'>others</label></li>
+                        <li><MyRadio id={'option1'} handlerSelectStep1={handlerSelectStep1} selectedOptionStep1 = {selectedOptionStep1}/><label className='container'>clothes that can be used again</label></li>
+                        <li><MyRadio id={'option2'} handlerSelectStep1={handlerSelectStep1} selectedOptionStep1 = {selectedOptionStep1}/><label className='container'>clothes to throw away</label></li>
+                        <li><MyRadio id={'option3'} handlerSelectStep1={handlerSelectStep1} selectedOptionStep1 = {selectedOptionStep1}/><label className='container'>toys</label></li>
+                        <li><MyRadio id={'option4'} handlerSelectStep1={handlerSelectStep1} selectedOptionStep1 = {selectedOptionStep1}/><label className='container'>books</label></li>
+                        <li><MyRadio id={'option5'} handlerSelectStep1={handlerSelectStep1} selectedOptionStep1 = {selectedOptionStep1}/><label className='container'>others</label></li>
                     </ul>
                 </div>
                 <button className='button' onClick={props.handlerStepUp}>Next</button>

@@ -3,10 +3,6 @@ import MySelect from "./FormMySelect";
 
 function FormStep2(props) {
 
-    const selectedOption = props.selectedOption;
-    const handlerSelect = props.handlerSelect;
-
-
     return (
         <>
             <div className='FormStep1Warning'>
