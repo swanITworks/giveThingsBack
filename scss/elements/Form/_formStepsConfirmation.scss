@@ -1,26 +1,7 @@
 @import "../../settings/colors";
 @import "../../settings/fonts";
-@import "../../settings/colors";
-@import "../../settings/fonts";
 
-.FormStep3Warning {
-  background-color: $columnsColor;
-  padding: 1.15rem 4rem;
-
-  h2 {
-    font-size: 2.25rem;
-    font-family: $font-base-semi-bold;
-    line-height: 2.5rem;
-  }
-
-  p {
-    font-size: 1.4rem;
-    line-height: 1.7rem;
-    font-family: OpenSans;
-  }
-}
-
-.Step3 {
+.StepsConfirmation {
   background-image: url('/assets/Background-Form.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -32,8 +13,25 @@
   flex-direction: column;
   justify-content: space-between;
 
-  .selectTown {
-    margin-bottom: 3rem;
+  .realizationData {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        margin-bottom: 1rem;
+
+        img {
+          width: 3rem;
+          height: 3rem;
+        }
+      }
+    }
   }
 
   p {
@@ -45,14 +43,14 @@
   h2 {
     font-size: 2rem;
     font-family: $font-base-semi-bold;
-    margin-bottom: 1.4rem;
+    margin-top: 2.7rem;
+    margin-bottom: 2.5rem;
   }
 
   h3 {
     font-size: 1.5rem;
     font-family: $font-base-semi-bold;
-    margin-top: 2.3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   select {
@@ -66,24 +64,6 @@
     }
   }
 
-  input {
-    width: 37rem;
-    height: 2rem;
-    border: 1px solid $mainFontColor;
-    line-height: 2.3rem;
-    font-size: 1.5rem;
-    font-family: OpenSansLight;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-    flex-wrap: wrap;
-    li {
-      margin-bottom: 1.3rem;
-    }
-  }
 
   .buttons {
     display: flex;

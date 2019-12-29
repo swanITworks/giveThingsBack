@@ -14,7 +14,6 @@ function FormStep3SelectTowns() {
     const handlerShowOptions = () => {
         setIsClicked(prevState => !prevState);
     };
-
     const handlerSelectOption = (target) => {
         setSelected(target.id)
     };
@@ -26,7 +25,7 @@ function FormStep3SelectTowns() {
         display: 'flex',
         justifyContent: 'space-between',
         cursor: 'pointer',
-        marginBottom:'1rem',
+        marginBottom: '1rem',
     };
 
     const arrow = {
@@ -48,7 +47,7 @@ function FormStep3SelectTowns() {
     const ShowOptions = (props) => {
         return options.map(item => {
             return <div className='option' key={item.label} id={item.label} onClick={props.handlerSelect}
-                        style={{margin: '0.5rem',width:'3rem', textAlign: 'center'}}>{item.label}</div>
+                        style={{margin: '0.5rem', width: '3rem', textAlign: 'center'}}>{item.label}</div>
         })
     };
 
@@ -71,7 +70,7 @@ function FormStep3SelectTowns() {
                 </div>
                 <div style={arrow}></div>
             </div>
-            {isClicked == true ? <div style={{
+            {isClicked == true ? <div onMouseLeave={handlerShowOptions} style={{
                 display: 'flex',
                 flexDirection: 'column',
                 textAlign: 'right',

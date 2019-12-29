@@ -3,15 +3,17 @@ import FormStep1 from "./FormStep1";
 import FormStep2 from "./FormStep2";
 import FormStep3 from "./FormStep3";
 import FormStep4 from "./FormStep4";
+import FormStepConfirmation from "./FormStepsConfirmation";
 
 function FormSteps() {
 
-    const [step, setStep] = useState(3);
+    const [step, setStep] = useState(5);
     const [selectedOptionStep1, setSelectedOptionStep1] = useState('');
-    const [selectedOptionStep3, setSelectedOptionStep3] = useState('');
+    const [selectedOptionStep2, setSelectedOptionStep2] = useState('choose');
+    const [selectedOptionStep3Who, setSelectedOptionStep3Who] = useState('');
 
     const handlerStepUp = () => {
-        if (step < 4) {
+        if (step < 5) {
             setStep(prevState => {
                 setStep(prevState + 1)
             })
@@ -31,8 +33,12 @@ function FormSteps() {
         console.log(e.target.id);
     };
 
-    const handlerSelectStep3 = (e) => {
-        setSelectedOptionStep3(e.target.id);
+    const handlerSelectStep2 = (target) => {
+        setSelectedOptionStep2(target.id)
+    };
+
+    const handlerSelectStep3Who = (e) => {
+        setSelectedOptionStep3Who(e.target.id);
         console.log(e.target.id);
     };
 
@@ -46,13 +52,16 @@ function FormSteps() {
                               handlerStepUp={handlerStepUp}/>
         }
         if (number === 2) {
-            return <FormStep2 handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown}/>
+            return <FormStep2 handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown} selectedOptionStep2={selectedOptionStep2} handlerSelectStep2={handlerSelectStep2}/>
         }
         if (number === 3) {
-            return <FormStep3 handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown} selectedOptionStep3={selectedOptionStep3} handlerSelectStep3={handlerSelectStep3}/>
+            return <FormStep3 handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown} selectedOptionStep3Who={selectedOptionStep3Who} handlerSelectStep3Who={handlerSelectStep3Who}/>
         }
         if (number === 4) {
-            return <FormStep4 handlerStepDown={handlerStepDown}/>
+            return <FormStep4 handlerStepDown={handlerStepDown} handlerStepUp={handlerStepUp}/>
+        }
+        if (number === 5) {
+            return <FormStepConfirmation handlerStepDown={handlerStepDown}/>
         }
     };
 

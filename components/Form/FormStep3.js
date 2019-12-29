@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import FormStep3SelectTowns from "./FormStep3SelectTowns";
-import WhomHelpRadio from "./FormMyRadio";
+import WhomHelpRadio from "./FormStep3WhomHelpRadio";
 
 function FormStep3(props) {
 
-    const handlerSelectStep3 = props.handlerSelectStep3;
-    const selectedOptionStep3 = props.selectedOptionStep3;
+    const handlerSelectStep3Who = props.handlerSelectStep3Who;
+    const selectedOptionStep3Who = props.selectedOptionStep3Who;
 
     return (
         <>
@@ -19,24 +19,21 @@ function FormStep3(props) {
                 <div>
                     <p>Step 3/4</p>
                     <h2>Localization:</h2>
-                    <FormStep3SelectTowns/>
+                    <div className='selectTown'>
+                        <FormStep3SelectTowns/>
+                    </div>
                     <h3>Who do you want to help?</h3>
                     <ul>
-                        <li><WhomHelpRadio id={'option1'} handlerSelectStep3={handlerSelectStep3}
-                                     selectedOptionStep3={selectedOptionStep3}/><label className='container'>clothes
-                            that can be used again</label></li>
-                        <li><WhomHelpRadio id={'option2'} handlerSelectStep3={handlerSelectStep3}
-                                     selectedOptionStep3={selectedOptionStep3}/><label className='container'>clothes to
-                            throw away</label></li>
-                        <li><WhomHelpRadio id={'option3'} handlerSelectStep3={handlerSelectStep3}
-                                     selectedOptionStep3={selectedOptionStep3}/><label
-                            className='container'>toys</label></li>
-                        <li><WhomHelpRadio id={'option4'} handlerSelectStep3={handlerSelectStep3}
-                                     selectedOptionStep3={selectedOptionStep3}/><label
-                            className='container'>books</label></li>
-                        <li><WhomHelpRadio id={'option5'} handlerSelectStep3={handlerSelectStep3}
-                                     selectedOptionStep3={selectedOptionStep3}/><label
-                            className='container'>others</label></li>
+                        <li><WhomHelpRadio id={'option1'} handlerSelectStep3Who={handlerSelectStep3Who}
+                                           selectedOptionStep3Who={selectedOptionStep3Who} text={'kids'}/></li>
+                        <li><WhomHelpRadio id={'option2'} handlerSelectStep3Who={handlerSelectStep3Who}
+                                           selectedOptionStep3Who={selectedOptionStep3Who} text={'alone mothers'}/></li>
+                        <li><WhomHelpRadio id={'option3'} handlerSelectStep3Who={handlerSelectStep3Who}
+                                           selectedOptionStep3Who={selectedOptionStep3Who} text={'homeless people'}/></li>
+                        <li><WhomHelpRadio id={'option4'} handlerSelectStep3Who={handlerSelectStep3Who}
+                                           selectedOptionStep3Who={selectedOptionStep3Who} text={'disabled people'}/></li>
+                        <li><WhomHelpRadio id={'option5'} handlerSelectStep3Who={handlerSelectStep3Who}
+                                           selectedOptionStep3Who={selectedOptionStep3Who} text={'older people'}/></li>
                     </ul>
                     <h3>Enter the name of a specific organization (optional)</h3>
                     <input type='text'/>

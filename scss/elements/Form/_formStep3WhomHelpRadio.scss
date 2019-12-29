@@ -1,9 +1,11 @@
 @import "../../settings/colors";
 @import "../../settings/fonts";
 
-.myRadio {
-  width: 2.4rem;
-  height: 2.4rem;
+.formStep3WhomWeHelpItem {
   border: solid 1px $mainFontColor;
+  padding: 1rem;
+  margin-right: 1rem;
+  font-size: 1.8rem;
+  font-family: OpenSansLight;
   cursor: pointer;
 }

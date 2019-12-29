@@ -1,16 +1,17 @@
 import React, {useState} from "react";
 
-function WhomHelpRadio (props) {
-    const handlerSelectStep3 = props.handlerSelectStep3;
+function WhomHelpRadio(props) {
+    const handlerSelectStep3Who = props.handlerSelectStep3Who;
     const id = props.id;
-    const selectedOptionStep3 = props.selectedOptionStep3;
+    const selectedOptionStep3Who = props.selectedOptionStep3Who;
+    const text = props.text;
 
-    if (selectedOptionStep3 === id) {
+    if (selectedOptionStep3Who === id) {
         return (
-            <div id={id} onClick={handlerSelectStep3} className='myRadio' style={{backgroundColor: '#FAD648'}}></div>
+            <div id={id} onClick={handlerSelectStep3Who} className='formStep3WhomWeHelpItem' style={{backgroundColor: '#FAD648'}}>{text}</div>
         )
     } else {
-        return <div id={id} onClick={handlerSelectStep3} className='myRadio'></div>
+        return <div id={id} onClick={handlerSelectStep3Whos} className='formStep3WhomWeHelpItem'>{text}</div>
     }
 }
 
