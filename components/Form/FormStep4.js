@@ -2,6 +2,9 @@ import React, {useState} from "react";
 
 function FormStep4(props) {
 
+    const collectionAddress = props.collectionAddress;
+    const handlerInputOnChange = props.handlerInputOnChange;
+
     return (
         <>
             <div className='FormStep4Warning'>
@@ -16,10 +19,10 @@ function FormStep4(props) {
                         <div className='address'>
                             <h3>Collection address</h3>
                             <ul>
-                                <li><label>Street</label><input type='text'/></li>
-                                <li><label>Town</label><input type='text'/></li>
-                                <li><label>Post code</label><input type='text'/></li>
-                                <li><label>Phone number</label><input type='text'/></li>
+                                <li><label>Street</label><input type='text' name='street' value={collectionAddress.street} onChange={handlerInputOnChange}/></li>
+                                <li><label>Town</label><input type='text' name='town' value={collectionAddress.town}/></li>
+                                <li><label>Post code</label><input type='text' name='postCode' value={collectionAddress.postCode}/>/></li>
+                                <li><label>Phone number</label><input type='text' name='phoneNumber' value={collectionAddress.phoneNumber}/></li>
                             </ul>
                         </div>
                         <div className='term'>

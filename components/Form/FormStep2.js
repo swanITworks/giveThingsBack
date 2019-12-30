@@ -3,8 +3,8 @@ import MySelect from "./FormMySelect";
 
 function FormStep2(props) {
 
-const selectedOptionStep2 = props.selectedOptionStep2;
-const handlerSelectStep2 = props.handlerSelectStep2;
+    const selectedOptionStep2 = props.selectedOptionStep2;
+    const handlerSelectStep2 = props.handlerSelectStep2;
 
     return (
         <>
@@ -20,7 +20,8 @@ const handlerSelectStep2 = props.handlerSelectStep2;
                     <div style={{display: "flex", alignItems: "center"}}>
                         <label>Quantity of 60l bags:</label>
                         <div className='selectContainer'>
-                            <MySelect selectedOptionStep2={selectedOptionStep2} handlerSelectStep2={handlerSelectStep2}/>
+                            <MySelect selectedOptionStep2={selectedOptionStep2}
+                                      handlerSelectStep2={handlerSelectStep2}/>
                         </div>
                     </div>
                 </div>

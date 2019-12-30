@@ -11,7 +11,7 @@ function WhomHelpRadio(props) {
             <div id={id} onClick={handlerSelectStep3Who} className='formStep3WhomWeHelpItem' style={{backgroundColor: '#FAD648'}}>{text}</div>
         )
     } else {
-        return <div id={id} onClick={handlerSelectStep3Whos} className='formStep3WhomWeHelpItem'>{text}</div>
+        return <div id={id} onClick={handlerSelectStep3Who} className='formStep3WhomWeHelpItem'>{text}</div>
     }
 }
 

@@ -8,15 +8,19 @@ const options = [
     {label: 'Blackpool'},
 ];
 
-function FormStep3SelectTowns() {
+function FormStep3SelectTowns(props) {
+
+    const selectedOptionStep3Town = props.selectedOptionStep3Town;
+    const handlerSelectStep3Town = props.handlerSelectStep3Town;
+
     const [isClicked, setIsClicked] = useState(false);
-    const [selected, setSelected] = useState('choose');
+    // const [selected, setSelected] = useState('choose');
     const handlerShowOptions = () => {
         setIsClicked(prevState => !prevState);
     };
-    const handlerSelectOption = (target) => {
-        setSelected(target.id)
-    };
+    // const handlerSelectOption = (target) => {
+    //     setSelected(target.id)
+    // };
 
     const select = {
         border: '1px solid black',
@@ -53,20 +57,20 @@ function FormStep3SelectTowns() {
 
     const handlerTwoFunctions = (target) => {
         handlerShowOptions();
-        handlerSelectOption(target);
+        handlerSelectStep3Town(target);
     };
 
     return (
         <>
             <div onClick={handlerShowOptions} style={select}>
                 <div style={{display: 'flex'}}>
-                    {selected === 'choose' ?
+                    {selectedOptionStep3Town === 'choose' ?
                         <>
                             <div style={crossOut}></div>
-                            <div style={{fontSize: '1.5rem'}}>{selected}</div>
+                            <div style={{fontSize: '1.5rem'}}>{selectedOptionStep3Town}</div>
                             <div style={crossOut}></div>
                         </>
-                        : <div style={{fontSize: '1.5rem'}}>{selected}</div>}
+                        : <div style={{fontSize: '1.5rem'}}>{selectedOptionStep3Town}</div>}
                 </div>
                 <div style={arrow}></div>
             </div>
