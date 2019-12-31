@@ -69,7 +69,7 @@ function App() {
                 </Route>
                 <Route exact path='/form'>
                     {isLogIn === true ?
-                        <Form isLogIn={isLogIn} logOutHandler={logOutHandler} logInEmail={logInData.login}/>
+                        <Form isLogIn={isLogIn} logOutHandler={logOutHandler} logInEmail={logInData.login} logInPass={logInData.password}/>
                         :
                         <LogIn isLogIn={isLogIn} logInHandler={logInHandler}/>
                     }

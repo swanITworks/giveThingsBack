@@ -4,6 +4,7 @@ import FormStep2 from "./FormStep2";
 import FormStep3 from "./FormStep3";
 import FormStep4 from "./FormStep4";
 import FormStepConfirmation from "./FormStepsConfirmation";
+import FormStepsSuccess from "./FormStepsSuccess";
 import firebase from "../../config.js";
 
 const inputsTemplate = {
@@ -17,9 +18,12 @@ const inputsTemplate = {
     organization: '',
 };
 
-function FormSteps() {
+function FormSteps(props) {
+
+    let collectionLength = '';
+    const {logInEmail, logInPass} = props;
     const [inputsData, setInputsData] = useState(inputsTemplate);
-    const [step, setStep] = useState(5);
+    const [step, setStep] = useState(1);
     const [selectedOptionStep1, setSelectedOptionStep1] = useState('');
     const [selectedOptionStep2, setSelectedOptionStep2] = useState('choose');
     const [selectedOptionStep3Who, setSelectedOptionStep3Who] = useState('');
@@ -47,6 +51,10 @@ function FormSteps() {
         }
     };
 
+    const handlerSuccess = () => {
+      setStep(6);
+    };
+
     const handlerSelectStep1 = (e) => {
         setSelectedOptionStep1(e.target.id);
         console.log(e.target.id);
@@ -65,32 +73,47 @@ function FormSteps() {
         setSelectedOptionStep3Town(target.id)
     };
 
-    const handlerSubmit = (e) => {
-        e.preventDefault();
+    const checkLengthOfCollectionAndSendData = () => {
         const db = firebase.firestore();
-        let collectionLength ='';
-        db.collection('collections')
+        db.collection('users')
+            .doc(logInEmail)
+            .collection('collections')
             .get()
             .then(function (querySnapshot) {
-                 collectionLength = querySnapshot.docs.length;
-                });
+                collectionLength = querySnapshot.docs.length;
+                sendData();
+            });
+    };
 
-        db.collection('collections')
-            .doc("coll" + (collectionLength+1))
-            .set({
-                ...inputsData,
-                step1: selectedOptionStep1,
-                step2: selectedOptionStep2,
-                step3Who: selectedOptionStep3Who,
-                step3Town: selectedOptionStep3Town,
-            })
+    const sendData = () => {
+        const db = firebase.firestore();
+        const collection = [];
+        const newCollection = {
+            ...inputsData,
+            step1: selectedOptionStep1,
+            step2: selectedOptionStep2,
+            step3Who: selectedOptionStep3Who,
+            step3Town: selectedOptionStep3Town,
+        };
+        collection.push(newCollection);
+        db.collection('users')
+            .doc(logInEmail)
+            .collection('collections')
+            .doc("coll" + (collectionLength + 1))
+            .set({...collection})
             .then(function () {
-                console.log('document succesfull writen')
+                console.log('document succesfull writen');
+                handlerSuccess();
             })
             .catch(function () {
                 console.error("Error writing document: ", error);
             });
         console.log('sent');
+    };
+
+    const handlerSubmit = (e) => {
+        e.preventDefault();
+        checkLengthOfCollectionAndSendData();
     };
 
     const showsStep = (number) => {
@@ -125,7 +148,12 @@ function FormSteps() {
                                          selectedOptionStep3Who={selectedOptionStep3Who}
                                          selectedOptionStep3Town={selectedOptionStep3Town}
                                          inputsData={inputsData} handlerSubmit={handlerSubmit}
+                                         handlerSuccess={handlerSuccess}
             />
+        }
+
+        if (number === 6) {
+            return <FormStepsSuccess/>
         }
     };
 

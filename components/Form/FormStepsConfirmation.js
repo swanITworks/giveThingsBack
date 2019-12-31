@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 function FormStepConfirmation(props) {
 
-    const {selectedOptionStep1, selectedOptionStep2, selectedOptionStep3Town, selectedOptionStep3Who, inputsData, handlerSubmit} = props;
+    const {selectedOptionStep1, selectedOptionStep2, selectedOptionStep3Town, selectedOptionStep3Who, inputsData, handlerSubmit, handlerSuccess} = props;
     return (
         <>
             <div className='StepsConfirmation'>
@@ -14,7 +14,7 @@ function FormStepConfirmation(props) {
                             <ul>
                                 <li><img src='../../assets/Icon-1.svg'/>
                                     <h4>{selectedOptionStep2} bags, {selectedOptionStep1},
-                                        for {selectedOptionStep3Who +' '+inputsData.organization}</h4>
+                                        for {selectedOptionStep3Who + ' ' + inputsData.organization}</h4>
                                 </li>
                                 <li><img src='../../assets/Icon-4.svg'/>
                                     <h4>for localization: {selectedOptionStep3Town}</h4>
