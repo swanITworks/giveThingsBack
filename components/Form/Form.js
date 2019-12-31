@@ -4,9 +4,10 @@ import HomeContactUs from "../Home/HomeContactUs";
 import FormSteps from "./FormSteps";
 
 function Form(props) {
+    const {logInEmail, isLogIn, logOutHandler, location} = props;
     return (
         <div className='mainContainer'>
-            <FormHeader isLogIn={props.isLogIn} logOutHandler={props.logOutHandler} location={props.location}/>
+            <FormHeader isLogIn={isLogIn} logOutHandler={logOutHandler} location={location} logInEmail={logInEmail}/>
             <FormSteps/>
             <HomeContactUs/>
         </div>

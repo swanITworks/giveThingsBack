@@ -7,9 +7,12 @@ import HomeWhomWeHelp from "./HomeWhomWeHelp";
 import HomeContactUs from "./HomeContactUs";
 
 function Home(props) {
+
+    const {logInEmail, location, logOutHandler, isLogIn} = props;
+
     return (
         <div className='mainContainer'>
-            <HomeHeader isLogIn={props.isLogIn} logOutHandler={props.logOutHandler} location={props.location}/>
+            <HomeHeader isLogIn={isLogIn} logOutHandler={logOutHandler} location={location} logInEmail={logInEmail}/>
             <HomeThreeColumns/>
             <HomeFourSteps/>
             <HomeAboutUs/>

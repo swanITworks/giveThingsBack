@@ -4,9 +4,10 @@ import FormHeaderStartInfo from "./FormHeaderStartInfo";
 
 
 function FormHeader(props) {
+    const {logInEmail, isLogIn, logOutHandler, location} = props;
     return (
         <div className='formHeader'>
-                <HomeHeaderMenu isLogIn={props.isLogIn} logOutHandler={props.logOutHandler} location={props.location}/>
+                <HomeHeaderMenu isLogIn={isLogIn} logOutHandler={logOutHandler} location={location} logInEmail={logInEmail}/>
                 <FormHeaderStartInfo/>
         </div>
     )

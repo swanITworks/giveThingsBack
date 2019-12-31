@@ -3,6 +3,9 @@ import HomeHeaderMenu from "../Home/HomeHeaderMenu";
 import {NavLink} from "react-router-dom";
 
 function LogIn(props) {
+
+    const {handlerCheckUser, handlerLogInInputs} = props;
+
     return (
         <div className='logIn'>
             <HomeHeaderMenu isLogIn = {props.isLogIn} logInHandler={props.logInHandler}/>
@@ -12,12 +15,12 @@ function LogIn(props) {
             </div>
             <form>
                 <div className='logInBox'>
-                        <label>Email</label><input type='email'/>
-                        <label>Password</label><input type='password'/>
+                        <label>Email</label><input type='email' name='login' onChange={handlerLogInInputs}/>
+                        <label>Password</label><input type='password' name='password' onChange={handlerLogInInputs}/>
                 </div>
                 <div className='logInButtons'>
                     <NavLink exact to="/signIn" activeClassName="active" className='button'>Sign in</NavLink>
-                    <NavLink exact to='/' onClick={props.logInHandler} className='button'>Log In</NavLink>
+                    <NavLink exact to='/' onClick={handlerCheckUser} className='button'>Log In</NavLink>
                 </div>
             </form>
         </div>

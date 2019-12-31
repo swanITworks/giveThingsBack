@@ -4,17 +4,21 @@ import FormStep2 from "./FormStep2";
 import FormStep3 from "./FormStep3";
 import FormStep4 from "./FormStep4";
 import FormStepConfirmation from "./FormStepsConfirmation";
+import firebase from "../../config.js";
 
-const addressTemplate = {
+const inputsTemplate = {
     street: '',
     town: '',
     postCode: '',
     phoneNumber: '',
+    date: '',
+    time: '',
+    info: '',
+    organization: '',
 };
 
 function FormSteps() {
-
-    const [collectionAddress, setCollectionAddress] = useState(addressTemplate);
+    const [inputsData, setInputsData] = useState(inputsTemplate);
     const [step, setStep] = useState(5);
     const [selectedOptionStep1, setSelectedOptionStep1] = useState('');
     const [selectedOptionStep2, setSelectedOptionStep2] = useState('choose');
@@ -24,7 +28,7 @@ function FormSteps() {
 
     const handlerInputOnChange = (e) => {
         const {name, value} = e.target;
-        setCollectionAddress(prevState => ({...prevState, [name]: value}));
+        setInputsData(prevState => ({...prevState, [name]: value}));
     };
 
     const handlerStepUp = () => {
@@ -63,6 +67,30 @@ function FormSteps() {
 
     const handlerSubmit = (e) => {
         e.preventDefault();
+        const db = firebase.firestore();
+        let collectionLength ='';
+        db.collection('collections')
+            .get()
+            .then(function (querySnapshot) {
+                 collectionLength = querySnapshot.docs.length;
+                });
+
+        db.collection('collections')
+            .doc("coll" + (collectionLength+1))
+            .set({
+                ...inputsData,
+                step1: selectedOptionStep1,
+                step2: selectedOptionStep2,
+                step3Who: selectedOptionStep3Who,
+                step3Town: selectedOptionStep3Town,
+            })
+            .then(function () {
+                console.log('document succesfull writen')
+            })
+            .catch(function () {
+                console.error("Error writing document: ", error);
+            });
+        console.log('sent');
     };
 
     const showsStep = (number) => {
@@ -81,11 +109,13 @@ function FormSteps() {
                               selectedOptionStep3Who={selectedOptionStep3Who}
                               handlerSelectStep3Who={handlerSelectStep3Who}
                               selectedOptionStep3Town={selectedOptionStep3Town}
-                              handlerSelectStep3Town={handlerSelectStep3Town} optionsStep3={options[1]}/>
+                              handlerSelectStep3Town={handlerSelectStep3Town} optionsStep3={options[1]}
+                              inputsData={inputsData} handlerInputOnChange={handlerInputOnChange}/>
         }
 
         if (number === 4) {
-            return <FormStep4 handlerStepDown={handlerStepDown} handlerStepUp={handlerStepUp} collectionAddress={collectionAddress} handlerInputOnChange={handlerInputOnChange}/>
+            return <FormStep4 handlerStepDown={handlerStepDown} handlerStepUp={handlerStepUp}
+                              inputsData={inputsData} handlerInputOnChange={handlerInputOnChange}/>
         }
 
         if (number === 5) {
@@ -94,6 +124,7 @@ function FormSteps() {
                                          selectedOptionStep2={selectedOptionStep2}
                                          selectedOptionStep3Who={selectedOptionStep3Who}
                                          selectedOptionStep3Town={selectedOptionStep3Town}
+                                         inputsData={inputsData} handlerSubmit={handlerSubmit}
             />
         }
     };

@@ -9,6 +9,8 @@ function FormStep3(props) {
     const selectedOptionStep3Town = props.selectedOptionStep3Town;
     const handlerSelectStep3Town = props.handlerSelectStep3Town;
     const optionsStep3 = props.optionsStep3;
+    const inputsData = props.inputsData;
+    const handlerInputOnChange = props.handlerInputOnChange;
 
     return (
         <>
@@ -23,7 +25,8 @@ function FormStep3(props) {
                     <p>Step 3/4</p>
                     <h2>Localization:</h2>
                     <div className='selectTown'>
-                        <FormStep3SelectTowns selectedOptionStep3Town={selectedOptionStep3Town} handlerSelectStep3Town={handlerSelectStep3Town}/>
+                        <FormStep3SelectTowns selectedOptionStep3Town={selectedOptionStep3Town}
+                                              handlerSelectStep3Town={handlerSelectStep3Town}/>
                     </div>
                     <h3>Who do you want to help?</h3>
                     <ul>
@@ -39,7 +42,8 @@ function FormStep3(props) {
                                            selectedOptionStep3Who={selectedOptionStep3Who} text={optionsStep3[4]}/></li>
                     </ul>
                     <h3>Enter the name of a specific organization (optional)</h3>
-                    <input type='text'/>
+                    <input type='text' name='organization' value={inputsData.organization}
+                           onChange={handlerInputOnChange}/>
                 </div>
                 <div className='buttons'>
                     <button className='button' onClick={props.handlerStepDown}>Back</button>

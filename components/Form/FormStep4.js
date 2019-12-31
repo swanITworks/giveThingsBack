@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 function FormStep4(props) {
 
-    const collectionAddress = props.collectionAddress;
+    const inputsData = props.inputsData;
     const handlerInputOnChange = props.handlerInputOnChange;
 
     return (
@@ -19,18 +19,31 @@ function FormStep4(props) {
                         <div className='address'>
                             <h3>Collection address</h3>
                             <ul>
-                                <li><label>Street</label><input type='text' name='street' value={collectionAddress.street} onChange={handlerInputOnChange}/></li>
-                                <li><label>Town</label><input type='text' name='town' value={collectionAddress.town}/></li>
-                                <li><label>Post code</label><input type='text' name='postCode' value={collectionAddress.postCode}/>/></li>
-                                <li><label>Phone number</label><input type='text' name='phoneNumber' value={collectionAddress.phoneNumber}/></li>
+                                <li><label>Street</label><input type='text' name='street'
+                                                                value={inputsData.street}
+                                                                onChange={handlerInputOnChange}/></li>
+                                <li><label>Town</label><input type='text' name='town' value={inputsData.town}
+                                                              onChange={handlerInputOnChange}/></li>
+                                <li><label>Post code</label><input type='text' name='postCode'
+                                                                   value={inputsData.postCode}
+                                                                   onChange={handlerInputOnChange}/></li>
+                                <li><label>Phone number</label><input type='text' name='phoneNumber'
+                                                                      value={inputsData.phoneNumber}
+                                                                      onChange={handlerInputOnChange}/></li>
                             </ul>
                         </div>
                         <div className='term'>
                             <h3>Collection term</h3>
                             <ul>
-                                <li><label>Date</label><input type='text'/></li>
-                                <li><label>Time</label><input type='text'/></li>
-                                <li><label>Information for courier company</label><textarea type='text'/></li>
+                                <li><label>Date</label><input type='date' name='date'
+                                                              value={inputsData.date}
+                                                              onChange={handlerInputOnChange}/></li>
+                                <li><label>Time</label><input type='time' name='time' value={inputsData.time}
+                                                              onChange={handlerInputOnChange}/></li>
+                                <li><label>Information for courier company</label><textarea type='text' name='info'
+                                                                                            value={inputsData.info}
+                                                                                            onChange={handlerInputOnChange}/>
+                                </li>
                             </ul>
                         </div>
                     </div>

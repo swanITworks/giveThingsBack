@@ -2,8 +2,7 @@ import React, {useState} from "react";
 
 function FormStepConfirmation(props) {
 
-    const {selectedOptionStep1, selectedOptionStep2, selectedOptionStep3Town, selectedOptionStep3Who} = props;
-
+    const {selectedOptionStep1, selectedOptionStep2, selectedOptionStep3Town, selectedOptionStep3Who, inputsData, handlerSubmit} = props;
     return (
         <>
             <div className='StepsConfirmation'>
@@ -15,7 +14,7 @@ function FormStepConfirmation(props) {
                             <ul>
                                 <li><img src='../../assets/Icon-1.svg'/>
                                     <h4>{selectedOptionStep2} bags, {selectedOptionStep1},
-                                        for {selectedOptionStep3Who} </h4>
+                                        for {selectedOptionStep3Who +' '+inputsData.organization}</h4>
                                 </li>
                                 <li><img src='../../assets/Icon-4.svg'/>
                                     <h4>for localization: {selectedOptionStep3Town}</h4>
@@ -25,27 +24,27 @@ function FormStepConfirmation(props) {
                         <div className='addressAndTermConfirmation'>
                             <div className='leftSide'>
                                 <h3>Address of collection:</h3>
-                                <p>Street</p>
-                                <p>City</p>
-                                <p>Post Code</p>
-                                <p>Phone number</p>
+                                <ul>
+                                    <li><p>Street</p><p>{inputsData.street}</p></li>
+                                    <li><p>City</p><p>{inputsData.town}</p></li>
+                                    <li><p>Post Code</p><p>{inputsData.postCode}</p></li>
+                                    <li><p>Phone number</p><p>{inputsData.phoneNumber}</p></li>
+                                </ul>
                             </div>
                             <div className='rightSide'>
                                 <h3>Term of collection:</h3>
-                                <p>Date</p>
-                                <p>Time</p>
-                                <p>Aditional information for courier company</p>
+                                <ul>
+                                    <li><p>Date</p><p>{inputsData.date}</p></li>
+                                    <li><p>Time</p><p>{inputsData.time}</p></li>
+                                    <li><p>Additional information for courier company</p><p>{inputsData.info}</p></li>
+                                </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 <div className='buttons'>
                     <button className='button' onClick={props.handlerStepDown}>Back</button>
-                    <button className='button' onClick={() => {
-                        console.log('sent')
-                    }}>Confirm
-                    </button>
+                    <button className='button' onClick={handlerSubmit}>Confirm</button>
                 </div>
             </div>
         </>

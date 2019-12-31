@@ -4,6 +4,7 @@ import LogIn from "./components/LogSing/LogIn";
 import SignIn from "./components/LogSing/SingIn";
 import LogOut from './components/LogSing/LogOut';
 import Form from './components/Form/Form';
+import firebase from "./config";
 
 import {
     HashRouter,
@@ -13,9 +14,29 @@ import {
     NavLink,
 } from 'react-router-dom';
 
+const logInDataTemplate = {
+    login: '',
+    password: '',
+};
+
 function App() {
 
+    const [logInData, setLogInData] = useState(logInDataTemplate);
     const [isLogIn, setIsLogIn] = useState(true);
+
+    const db = firebase.firestore();
+    const handlerCheckUser = () => {
+        db.collection('users')
+            .where('login', '==', logInData.login)
+            .where('password', '==', logInData.password)
+            .get()
+            .then(function (querySnapshot) {
+                if (querySnapshot.docs.length !== 0) {
+                    logInHandler();
+                    console.log('jest user');
+                }
+            })
+    };
 
     const logInHandler = () => {
         setIsLogIn(true);
@@ -25,14 +46,20 @@ function App() {
         setIsLogIn(false);
     };
 
+    const handlerLogInInputs = (e) => {
+        const {name, value} = e.target;
+        setLogInData(prevState => ({...prevState, [name]: value}));
+    };
+
     return (
         <HashRouter>
             <>
                 <Route exact path='/'>
-                    <Home isLogIn={isLogIn} logInHandler={logInHandler} logOutHandler={logOutHandler} location={location.pathname}/>
+                    <Home isLogIn={isLogIn} logInHandler={logInHandler} logOutHandler={logOutHandler}
+                          location={location.pathname} logInEmail={logInData.login}/>
                 </Route>
                 <Route exact path='/logIn'>
-                    <LogIn isLogIn={isLogIn} logInHandler={logInHandler}/>
+                    <LogIn isLogIn={isLogIn} logInHandler={logInHandler} handlerCheckUser={handlerCheckUser} handlerLogInInputs={handlerLogInInputs}/>
                 </Route>
                 <Route exact path='/signIn'>
                     <SignIn isLogIn={isLogIn}/>
@@ -42,8 +69,8 @@ function App() {
                 </Route>
                 <Route exact path='/form'>
                     {isLogIn === true ?
-                        <Form isLogIn={isLogIn} logOutHandler={logOutHandler}/>
-                    :
+                        <Form isLogIn={isLogIn} logOutHandler={logOutHandler} logInEmail={logInData.login}/>
+                        :
                         <LogIn isLogIn={isLogIn} logInHandler={logInHandler}/>
                     }
                 </Route>
