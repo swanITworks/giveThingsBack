@@ -22,7 +22,8 @@ function FormStep1(props) {
                                      selectedOptionStep1={selectedOptionStep1}/><label
                             className='container'>{optionsStep1[0]}</label></li>
                         <li><MyRadio id={optionsStep1[1]} handlerSelectStep1={handlerSelectStep1}
-                                     selectedOptionStep1={selectedOptionStep1}/><label className='container'>{optionsStep1[1]}</label></li>
+                                     selectedOptionStep1={selectedOptionStep1}/><label
+                            className='container'>{optionsStep1[1]}</label></li>
                         <li><MyRadio id={optionsStep1[2]} handlerSelectStep1={handlerSelectStep1}
                                      selectedOptionStep1={selectedOptionStep1}/><label
                             className='container'>{optionsStep1[2]}</label></li>
@@ -34,7 +35,7 @@ function FormStep1(props) {
                             className='container'>{optionsStep1[4]}</label></li>
                     </ul>
                 </div>
-                <button className='button' onClick={props.handlerStepUp}>Next</button>
+                <div className='button' onClick={selectedOptionStep1!=='' && props.handlerStepUp}>Next</div>
             </div>
         </>
     )

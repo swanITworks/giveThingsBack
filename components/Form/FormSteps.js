@@ -52,12 +52,13 @@ function FormSteps(props) {
     };
 
     const handlerSuccess = () => {
-      setStep(6);
+        setStep(6);
     };
 
     const handlerSelectStep1 = (e) => {
-        setSelectedOptionStep1(e.target.id);
-        console.log(e.target.id);
+        if (selectedOptionStep1 === '') {
+            setSelectedOptionStep1(e.target.id);
+        } else setSelectedOptionStep1('')
     };
 
     const handlerSelectStep2 = (target) => {
@@ -111,8 +112,8 @@ function FormSteps(props) {
         console.log('sent');
     };
 
-    const handlerSubmit = (e) => {
-        e.preventDefault();
+    const handlerSubmit = () => {
+
         checkLengthOfCollectionAndSendData();
     };
 

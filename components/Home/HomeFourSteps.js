@@ -35,7 +35,7 @@ function HomeFourSteps() {
                 </div>
             </div>
             <div className='homeFourStepsButton'>
-                <NavLink exact to="/" activeClassName="active" className='button'>GIVE BACK STUFF</NavLink>
+                <NavLink exact to="/form" activeClassName="active" className='button'>GIVE BACK STUFF</NavLink>
             </div>
         </div>
     )

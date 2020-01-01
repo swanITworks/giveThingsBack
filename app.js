@@ -22,7 +22,7 @@ const logInDataTemplate = {
 function App() {
 
     const [logInData, setLogInData] = useState(logInDataTemplate);
-    const [isLogIn, setIsLogIn] = useState(true);
+    const [isLogIn, setIsLogIn] = useState(false);
 
     const db = firebase.firestore();
     const handlerCheckUser = () => {
