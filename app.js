@@ -9,9 +9,7 @@ import firebase from "./config";
 import {
     HashRouter,
     Route,
-    Link,
-    Switch,
-    NavLink,
+
 } from 'react-router-dom';
 
 const logInDataTemplate = {
@@ -22,7 +20,7 @@ const logInDataTemplate = {
 function App() {
 
     const [logInData, setLogInData] = useState(logInDataTemplate);
-    const [isLogIn, setIsLogIn] = useState(false);
+    const [isLogIn, setIsLogIn] = useState(true);
 
     const db = firebase.firestore();
     const handlerCheckUser = () => {

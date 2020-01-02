@@ -14,13 +14,9 @@ function FormStep3SelectTowns(props) {
     const handlerSelectStep3Town = props.handlerSelectStep3Town;
 
     const [isClicked, setIsClicked] = useState(false);
-    // const [selected, setSelected] = useState('choose');
     const handlerShowOptions = () => {
         setIsClicked(prevState => !prevState);
     };
-    // const handlerSelectOption = (target) => {
-    //     setSelected(target.id)
-    // };
 
     const select = {
         border: '1px solid black',

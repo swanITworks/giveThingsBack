@@ -6,6 +6,16 @@ function FormStep1(props) {
     const handlerSelectStep1 = props.handlerSelectStep1;
     const selectedOptionStep1 = props.selectedOptionStep1;
     const optionsStep1 = props.optionsStep1;
+    const [warning,setWarning] = useState('');
+
+    const handlerClick = () => {
+        if (selectedOptionStep1 !== '') {
+            props.handlerStepUp()
+        } else {
+            let newWarning = <li className='warning' style={{backgroundColor:'#FAD648', width:'30rem', textAlign:'center', fontFamily:'OpenSans', fontSize:'1.5rem', padding:'1rem'}}>Please check one option before go further</li>;
+            setWarning(newWarning)
+        }
+    };
 
     return (
         <>
@@ -33,9 +43,12 @@ function FormStep1(props) {
                         <li><MyRadio id={optionsStep1[4]} handlerSelectStep1={handlerSelectStep1}
                                      selectedOptionStep1={selectedOptionStep1}/><label
                             className='container'>{optionsStep1[4]}</label></li>
+                        {warning}
                     </ul>
                 </div>
-                <div className='button' onClick={selectedOptionStep1!=='' && props.handlerStepUp}>Next</div>
+                <div className='button'
+                     onClick={handlerClick}>Next
+                </div>
             </div>
         </>
     )

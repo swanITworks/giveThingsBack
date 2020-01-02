@@ -18,6 +18,14 @@ const inputsTemplate = {
     organization: '',
 };
 
+const isSelectedTemplate = {
+    option1: false,
+    option2: false,
+    option3: false,
+    option4: false,
+    option5: false,
+};
+
 function FormSteps(props) {
 
     let collectionLength = '';
@@ -26,9 +34,10 @@ function FormSteps(props) {
     const [step, setStep] = useState(1);
     const [selectedOptionStep1, setSelectedOptionStep1] = useState('');
     const [selectedOptionStep2, setSelectedOptionStep2] = useState('choose');
-    const [selectedOptionStep3Who, setSelectedOptionStep3Who] = useState('');
+    const [selectedOptionStep3Who, setSelectedOptionStep3Who] = useState(isSelectedTemplate);
     const [selectedOptionStep3Town, setSelectedOptionStep3Town] = useState('choose');
     const options = [['clothes hat can be used again', 'clothes to throw away', 'toys', 'books', 'others'], ['kids', 'alone mothers', 'homeless people', 'disabled people', 'older people']];
+    const [myArray, setMyArray] = useState([]);
 
     const handlerInputOnChange = (e) => {
         const {name, value} = e.target;
@@ -56,18 +65,35 @@ function FormSteps(props) {
     };
 
     const handlerSelectStep1 = (e) => {
-        if (selectedOptionStep1 === '') {
-            setSelectedOptionStep1(e.target.id);
-        } else setSelectedOptionStep1('')
+        setSelectedOptionStep1(e.target.id);
+        if (selectedOptionStep1 === e.target.id) {
+            setSelectedOptionStep1('');
+        }
     };
 
     const handlerSelectStep2 = (target) => {
         setSelectedOptionStep2(target.id)
     };
 
-    const handlerSelectStep3Who = (e) => {
-        setSelectedOptionStep3Who(e.target.id);
-        console.log(e.target.id);
+    const handlerSelectStep3WhoTrue = (e) => {
+        const {id, name} = e.target;
+        setSelectedOptionStep3Who(prevState => ({...prevState, [id]: true}));
+        let myOptions = options[1];
+        let number = id.charAt(id.length - 1);
+        let myOption = myOptions[number - 1];
+        const newArray = [...myArray, myOption];
+        setMyArray([...newArray]);
+
+    };
+
+    const handlerSelectStep3WhoFalse = (e) => {
+        const {id, value} = e.target;
+        setSelectedOptionStep3Who(prevState => ({...prevState, [id]: false}));
+        let myOptions = options[1];
+        let number = id.charAt(id.length - 1);
+        let myOption = myOptions[number];
+        const newArray = [...myArray.filter(word => word === myOption)];
+        setMyArray([...newArray]);
     };
 
     const handlerSelectStep3Town = (target) => {
@@ -131,10 +157,11 @@ function FormSteps(props) {
         if (number === 3) {
             return <FormStep3 handlerStepUp={handlerStepUp} handlerStepDown={handlerStepDown}
                               selectedOptionStep3Who={selectedOptionStep3Who}
-                              handlerSelectStep3Who={handlerSelectStep3Who}
                               selectedOptionStep3Town={selectedOptionStep3Town}
                               handlerSelectStep3Town={handlerSelectStep3Town} optionsStep3={options[1]}
-                              inputsData={inputsData} handlerInputOnChange={handlerInputOnChange}/>
+                              inputsData={inputsData} handlerInputOnChange={handlerInputOnChange}
+                              handlerSelectStep3WhoTrue={handlerSelectStep3WhoTrue}
+                              handlerSelectStep3WhoFalse={handlerSelectStep3WhoFalse}/>
         }
 
         if (number === 4) {
@@ -149,7 +176,7 @@ function FormSteps(props) {
                                          selectedOptionStep3Who={selectedOptionStep3Who}
                                          selectedOptionStep3Town={selectedOptionStep3Town}
                                          inputsData={inputsData} handlerSubmit={handlerSubmit}
-                                         handlerSuccess={handlerSuccess}
+                                         handlerSuccess={handlerSuccess} myArray={myArray}
             />
         }
 

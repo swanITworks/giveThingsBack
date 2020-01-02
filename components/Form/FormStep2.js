@@ -5,6 +5,23 @@ function FormStep2(props) {
 
     const selectedOptionStep2 = props.selectedOptionStep2;
     const handlerSelectStep2 = props.handlerSelectStep2;
+    const [warning, setWarning] = useState('');
+
+    const handlerClick = () => {
+        if (selectedOptionStep2 !== 'choose') {
+            props.handlerStepUp()
+        } else {
+            let newWarning = <div className='warning' style={{
+                backgroundColor: '#FAD648',
+                width: '30rem',
+                textAlign: 'center',
+                fontFamily: 'OpenSans',
+                fontSize: '1.5rem',
+                padding: '1rem'
+            }}>Please choose quantity before go further</div>;
+            setWarning(newWarning)
+        }
+    };
 
     return (
         <>
@@ -24,10 +41,12 @@ function FormStep2(props) {
                                       handlerSelectStep2={handlerSelectStep2}/>
                         </div>
                     </div>
+
                 </div>
+                {warning}
                 <div className='buttons'>
-                    <button className='button' onClick={props.handlerStepDown}>Back</button>
-                    <button className='button' onClick={props.handlerStepUp}>Next</button>
+                    <div className='button' onClick={props.handlerStepDown}>Back</div>
+                    <div className='button' onClick={handlerClick}>Next</div>
                 </div>
             </div>
         </>
