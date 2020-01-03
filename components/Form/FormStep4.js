@@ -1,9 +1,41 @@
-import React, {useState} from "react";
+import React, {useEffect, useState, useCallback} from "react";
 
 function FormStep4(props) {
 
     const inputsData = props.inputsData;
     const handlerInputOnChange = props.handlerInputOnChange;
+    const [warnings, setWarnings] = useState(['']);
+
+    const validateInputs = () => {
+
+        const newWarnings = [];
+
+        if (inputsData.street.length < 3) {
+            const newWarning = <div className='warning'>Street should have minimum 2 characters</div>;
+            newWarnings.push(newWarning)
+        }
+
+        if (inputsData.town.length < 3) {
+            const newWarning = <div className='warning'>Town should have minimum 2 characters</div>;
+            newWarnings.push(newWarning)
+        }
+        if (inputsData.postCode.length < 5) {
+            const newWarning = <div className='warning'>Post code should have minimum 5 characters</div>;
+            newWarnings.push(newWarning)
+        }
+        if (inputsData.phoneNumber.length !== 9 || typeof inputsData.phoneNumber === 'string') {
+            const newWarning = <div className='warning'>Phone number should have only 9 digits</div>;
+            newWarnings.push(newWarning)
+        }
+        ;
+        setWarnings([...newWarnings]);
+    };
+
+    const handlerClick = () => {
+        validateInputs();
+    };
+
+    useEffect(()=>{if(warnings.length==0){props.handlerStepUp()}},[warnings]);
 
     return (
         <>
@@ -24,12 +56,13 @@ function FormStep4(props) {
                                                                 onChange={handlerInputOnChange}/></li>
                                 <li><label>Town</label><input type='text' name='town' value={inputsData.town}
                                                               onChange={handlerInputOnChange}/></li>
-                                <li><label>Post code</label><input type='text' name='postCode'
+                                <li><label>Post code</label><input type='numbers' name='postCode'
                                                                    value={inputsData.postCode}
                                                                    onChange={handlerInputOnChange}/></li>
-                                <li><label>Phone number</label><input type='text' name='phoneNumber'
+                                <li><label>Phone number</label><input type='numbers' name='phoneNumber'
                                                                       value={inputsData.phoneNumber}
-                                                                      onChange={handlerInputOnChange}/></li>
+                                                                      onChange={handlerInputOnChange} pattern='[0-9]'
+                                                                      required/></li>
                             </ul>
                         </div>
                         <div className='term'>
@@ -48,9 +81,10 @@ function FormStep4(props) {
                         </div>
                     </div>
                 </div>
+                {warnings.length > 0 && warnings.map(item => item)}
                 <div className='buttons'>
-                    <button className='button' onClick={props.handlerStepDown}>Back</button>
-                    <button className='button' onClick={props.handlerStepUp}>Next</button>
+                    <div className='button' onClick={props.handlerStepDown}>Back</div>
+                    <div className='button' onClick={handlerClick}>Next</div>
                 </div>
             </div>
         </>

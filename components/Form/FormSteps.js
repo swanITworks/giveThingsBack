@@ -11,7 +11,7 @@ const inputsTemplate = {
     street: '',
     town: '',
     postCode: '',
-    phoneNumber: '',
+    phoneNumber: null,
     date: '',
     time: '',
     info: '',
@@ -37,7 +37,7 @@ function FormSteps(props) {
     const [selectedOptionStep3Who, setSelectedOptionStep3Who] = useState(isSelectedTemplate);
     const [selectedOptionStep3Town, setSelectedOptionStep3Town] = useState('choose');
     const options = [['clothes hat can be used again', 'clothes to throw away', 'toys', 'books', 'others'], ['kids', 'alone mothers', 'homeless people', 'disabled people', 'older people']];
-    const [myArray, setMyArray] = useState([]);
+    const [selectedArray, setSelectedArray] = useState([]);
 
     const handlerInputOnChange = (e) => {
         const {name, value} = e.target;
@@ -81,9 +81,8 @@ function FormSteps(props) {
         let myOptions = options[1];
         let number = id.charAt(id.length - 1);
         let myOption = myOptions[number - 1];
-        const newArray = [...myArray, myOption];
-        setMyArray([...newArray]);
-
+        const newArray = [...selectedArray, myOption];
+        setSelectedArray([...newArray]);
     };
 
     const handlerSelectStep3WhoFalse = (e) => {
@@ -92,8 +91,8 @@ function FormSteps(props) {
         let myOptions = options[1];
         let number = id.charAt(id.length - 1);
         let myOption = myOptions[number];
-        const newArray = [...myArray.filter(word => word === myOption)];
-        setMyArray([...newArray]);
+        const newArray = [...selectedArray.filter(word => word === myOption)];
+        setSelectedArray([...newArray]);
     };
 
     const handlerSelectStep3Town = (target) => {
@@ -161,7 +160,7 @@ function FormSteps(props) {
                               handlerSelectStep3Town={handlerSelectStep3Town} optionsStep3={options[1]}
                               inputsData={inputsData} handlerInputOnChange={handlerInputOnChange}
                               handlerSelectStep3WhoTrue={handlerSelectStep3WhoTrue}
-                              handlerSelectStep3WhoFalse={handlerSelectStep3WhoFalse}/>
+                              handlerSelectStep3WhoFalse={handlerSelectStep3WhoFalse} selectedArray={selectedArray}/>
         }
 
         if (number === 4) {
@@ -176,7 +175,7 @@ function FormSteps(props) {
                                          selectedOptionStep3Who={selectedOptionStep3Who}
                                          selectedOptionStep3Town={selectedOptionStep3Town}
                                          inputsData={inputsData} handlerSubmit={handlerSubmit}
-                                         handlerSuccess={handlerSuccess} myArray={myArray}
+                                         handlerSuccess={handlerSuccess} selectedArray={selectedArray}
             />
         }
 

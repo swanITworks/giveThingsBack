@@ -12,14 +12,36 @@ function FormStep3(props) {
     const handlerInputOnChange = props.handlerInputOnChange;
     const handlerSelectStep3WhoTrue = props.handlerSelectStep3WhoTrue;
     const handlerSelectStep3WhoFalse = props.handlerSelectStep3WhoFalse;
+    const selectedArray = props.selectedArray;
 
-    const [warning,setWarning] = useState('');
+    const [warning, setWarning] = useState('');
+    const [warning2, setWarning2] = useState('');
 
     const handlerClick = () => {
-        if (selectedOptionStep3Town !== 'choose' || inputsData.organization !=='') {
-            props.handlerStepUp()
+        if (selectedOptionStep3Town !== 'choose' || inputsData.organization !== '') {
+           if (selectedArray.length !== 0) {
+                props.handlerStepUp()
+            } else {
+               setWarning(null);
+                let newWarning2 = <div className='warning' style={{
+                    backgroundColor: '#FAD648',
+                    width: '40rem',
+                    textAlign: 'center',
+                    fontFamily: 'OpenSans',
+                    fontSize: '1.5rem',
+                    padding: '1rem'
+                }}>Please choose who you would you like to help.</div>;
+                setWarning2(newWarning2)
+            }
         } else {
-            let newWarning = <div className='warning' style={{backgroundColor:'#FAD648', width:'40rem', textAlign:'center', fontFamily:'OpenSans', fontSize:'1.5rem', padding:'1rem'}}>Please choose localization or put name of foundation.</div>;
+            let newWarning = <div className='warning' style={{
+                backgroundColor: '#FAD648',
+                width: '40rem',
+                textAlign: 'center',
+                fontFamily: 'OpenSans',
+                fontSize: '1.5rem',
+                padding: '1rem'
+            }}>Please choose localization or put name of foundation.</div>;
             setWarning(newWarning)
         }
     };
@@ -68,6 +90,7 @@ function FormStep3(props) {
                            onChange={handlerInputOnChange}/>
                 </div>
                 {warning}
+                {warning2}
                 <div className='buttons'>
                     <div className='button' onClick={props.handlerStepDown}>Back</div>
                     <div className='button' onClick={handlerClick}>Next</div>
