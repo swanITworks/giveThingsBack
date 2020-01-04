@@ -9,7 +9,6 @@ import firebase from "./config";
 import {
     HashRouter,
     Route,
-
 } from 'react-router-dom';
 
 const logInDataTemplate = {
@@ -49,6 +48,8 @@ function App() {
         setLogInData(prevState => ({...prevState, [name]: value}));
     };
 
+
+
     return (
         <HashRouter>
             <>
@@ -57,7 +58,8 @@ function App() {
                           location={location.pathname} logInEmail={logInData.login}/>
                 </Route>
                 <Route exact path='/logIn'>
-                    <LogIn isLogIn={isLogIn} logInHandler={logInHandler} handlerCheckUser={handlerCheckUser} handlerLogInInputs={handlerLogInInputs}/>
+                    <LogIn isLogIn={isLogIn} logInHandler={logInHandler} handlerCheckUser={handlerCheckUser}
+                           handlerLogInInputs={handlerLogInInputs}/>
                 </Route>
                 <Route exact path='/signIn'>
                     <SignIn isLogIn={isLogIn}/>
@@ -67,7 +69,8 @@ function App() {
                 </Route>
                 <Route exact path='/form'>
                     {isLogIn === true ?
-                        <Form isLogIn={isLogIn} logOutHandler={logOutHandler} logInEmail={logInData.login} logInPass={logInData.password}/>
+                        <Form isLogIn={isLogIn} logOutHandler={logOutHandler} logInEmail={logInData.login}
+                              logInPass={logInData.password}/>
                         :
                         <LogIn isLogIn={isLogIn} logInHandler={logInHandler}/>
                     }

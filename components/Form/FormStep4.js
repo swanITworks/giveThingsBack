@@ -1,13 +1,17 @@
-import React, {useEffect, useState, useCallback} from "react";
+import React, {useEffect, useState} from "react";
 
 function FormStep4(props) {
 
     const inputsData = props.inputsData;
     const handlerInputOnChange = props.handlerInputOnChange;
     const [warnings, setWarnings] = useState(['']);
+    const date = new Date();
+    const actualDatePlus4 = date.getFullYear() + '-' + '0' + (date.getMonth() + 1) + '-' + '0' + (date.getDate() + 4);
+    const actualDatePlus5 = date.getFullYear() + '-' + '0' + (date.getMonth() + 1) + '-' + '0' + (date.getDate() + 5);
+
 
     const validateInputs = () => {
-
+        const isNum = /^\d+$/.test(inputsData.phoneNumber);
         const newWarnings = [];
 
         if (inputsData.street.length < 3) {
@@ -23,11 +27,23 @@ function FormStep4(props) {
             const newWarning = <div className='warning'>Post code should have minimum 5 characters</div>;
             newWarnings.push(newWarning)
         }
-        if (inputsData.phoneNumber.length !== 9 || typeof inputsData.phoneNumber === 'string') {
+
+        if (inputsData.phoneNumber.length !== 9 || isNum === false) {
             const newWarning = <div className='warning'>Phone number should have only 9 digits</div>;
             newWarnings.push(newWarning)
         }
-        ;
+
+        if (inputsData.date <= actualDatePlus4) {
+            const newWarning = <div className='warning'>We need 5 days to organize collection. Date of collection should
+                be 5 days from today</div>;
+            newWarnings.push(newWarning)
+        }
+
+        if (inputsData.time.length < 3) {
+            const newWarning = <div className='warning'>Please select time of collection from 8 AM to 6 PM</div>;
+            newWarnings.push(newWarning)
+        }
+
         setWarnings([...newWarnings]);
     };
 
@@ -35,7 +51,11 @@ function FormStep4(props) {
         validateInputs();
     };
 
-    useEffect(()=>{if(warnings.length==0){props.handlerStepUp()}},[warnings]);
+    useEffect(() => {
+        if (warnings.length == 0) {
+            props.handlerStepUp()
+        }
+    }, [warnings]);
 
     return (
         <>
@@ -70,10 +90,12 @@ function FormStep4(props) {
                             <ul>
                                 <li><label>Date</label><input type='date' name='date'
                                                               value={inputsData.date}
-                                                              onChange={handlerInputOnChange}/></li>
+                                                              onChange={handlerInputOnChange} min={actualDatePlus5}/>
+                                </li>
                                 <li><label>Time</label><input type='time' name='time' value={inputsData.time}
-                                                              onChange={handlerInputOnChange}/></li>
-                                <li><label>Information for courier company</label><textarea type='text' name='info'
+                                                              onChange={handlerInputOnChange} min="08:00" max="16:00"
+                                                              step="900" required/></li>
+                                <li><label>Information for courier company (optional)</label><textarea type='text' name='info'
                                                                                             value={inputsData.info}
                                                                                             onChange={handlerInputOnChange}/>
                                 </li>

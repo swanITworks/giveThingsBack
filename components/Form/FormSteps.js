@@ -11,7 +11,7 @@ const inputsTemplate = {
     street: '',
     town: '',
     postCode: '',
-    phoneNumber: null,
+    phoneNumber: '',
     date: '',
     time: '',
     info: '',
