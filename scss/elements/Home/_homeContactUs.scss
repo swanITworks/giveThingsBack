@@ -9,7 +9,6 @@
     opacity: 0.15;
   }
 
-
   .content {
     display: flex;
     flex-direction: column;
@@ -34,6 +33,11 @@
         font-size: 1rem;
         font-family: $font-base-semi-bold;
         color: $mainFontColor;
+        .warning {
+          font-size: 0.8rem;
+          font-family: $font-base-light;
+          color: #960c0c;
+        }
       }
 
       .topOfForm {
