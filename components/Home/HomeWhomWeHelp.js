@@ -97,9 +97,13 @@ const HomeWhomWeHelp = () => {
                     check
                     what they do, who they help and what they need.</p>
             </div>
-            {(whomHelp === 'foundations') ? <HomeWhomWeHelpList data={foundations}/> : null}
-            {(whomHelp === 'organizations') ? <HomeWhomWeHelpList data={organizations}/> : null}
-            {(whomHelp === 'locals') ? <HomeWhomWeHelpList data={locals}/> : null}
+            <div className='homeWhomWeHelpList'>
+                <ul>
+                    {(whomHelp === 'foundations') ? <HomeWhomWeHelpList data={foundations}/> : null}
+                    {(whomHelp === 'organizations') ? <HomeWhomWeHelpList data={organizations}/> : null}
+                    {(whomHelp === 'locals') ? <HomeWhomWeHelpList data={locals}/> : null}
+                </ul>
+            </div>
         </div>
     )
 }

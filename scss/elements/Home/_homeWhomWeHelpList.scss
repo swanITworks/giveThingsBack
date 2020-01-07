@@ -6,36 +6,56 @@
   display: flex;
   flex-direction: column;
 
-  li {
-    border-bottom: solid 1px $mainFontColor;
-    padding-bottom: 1rem;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-
-    .name {
-      font-family: $font-alt-light;
-      font-size: 1.7rem;
-    }
-
-    .stuff {
-      font-size: 1.1rem;
-      font-family: $font-alt-light;
-    }
-
-    .mission {
-      margin-top: 0.3rem;
-      font-size: 1.1rem;
-      font-family: $font-alt-lightItalic;
-    }
-
+  .siteButtons {
+    justify-self: center;
+    align-self: center;
+    margin: 2rem;
   }
 
-  .buttons {
-    align-self: center;
+  ul {
+
+    display: flex;
+    flex-direction: column;
+
+    ul:last-child{
+      border-bottom: 5px solid red;
+    }
+
+    li {
+
+      border-bottom: solid 1px $mainFontColor;
+      padding-bottom: 1rem;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+
+      .name {
+        font-family: $font-alt-light;
+        font-size: 1.7rem;
+      }
+
+      .stuff {
+        font-size: 1.1rem;
+        font-family: $font-alt-light;
+      }
+
+      .mission {
+        margin-top: 0.3rem;
+        font-size: 1.1rem;
+        font-family: $font-alt-lightItalic;
+      }
+    }
+
+    //li {
+    //  border-bottom: 5px solid red;
+    //}
+
+
+
 
     button {
       padding: 1rem;
+
     }
   }
 }
