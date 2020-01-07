@@ -74,20 +74,20 @@ const HomeWhomWeHelp = () => {
                 <div className='homeWhomHelpButton'>
                     <button onClick={() => {
                         setWhomHelp('foundations')
-                    }} className='button'>FOUNDATIONS
+                    }} style={whomHelp === 'foundations'? {border: '1px solid #3C3C3C', padding:'1.5rem'} : null} className='button'>FOUNDATIONS
                     </button>
                 </div>
                 <div className='homeWhomHelpButton'>
                     <button onClick={() => {
                         setWhomHelp('organizations')
-                    }} className='button'>NON-GOVERNMENTAL
+                    }} className='button' style={whomHelp === 'organizations' ? {border: '1px solid #3C3C3C', padding:'1.5rem'} : null}>NON-GOVERNMENTAL
                         ORGANIZATIONS
                     </button>
                 </div>
                 <div className='homeWhomHelpButton'>
                     <button onClick={() => {
                         setWhomHelp('locals')
-                    }} className='button'>LOCAL
+                    }} className='button' style={whomHelp === 'locals' ? {border: '1px solid #3C3C3C', padding:'1.5rem'} : null}>LOCAL
                         COLLECTION
                     </button>
                 </div>

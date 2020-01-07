@@ -28,6 +28,7 @@
       margin-top: 1rem;
       display: flex;
       justify-content: space-between;
+      color: $mainFontColor;
 
       .name {
         font-family: $font-alt-light;
@@ -45,13 +46,6 @@
         font-family: $font-alt-lightItalic;
       }
     }
-
-    //li {
-    //  border-bottom: 5px solid red;
-    //}
-
-
-
 
     button {
       padding: 1rem;
