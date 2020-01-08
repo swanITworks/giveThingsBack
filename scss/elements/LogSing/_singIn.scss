@@ -1,7 +1,7 @@
 @import "../../settings/colors";
 @import "../../settings/fonts";
 
-.logIn {
+.signIn {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -15,30 +15,40 @@
     flex-direction: column;
     align-items: center;
 
-    .logInBox {
+    .signInBox {
       background-color: $backgroundFourSteps;
       display: flex;
       flex-direction: column;
-      padding: 2rem 3rem 0.5rem 3rem;
+      padding: 2rem 3rem 1rem 3rem;
       width: 15rem;
+
+      .signInWarnings {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        color: #960c0c;
+      }
 
       input {
         border-bottom: 1px solid $borderColor;
         width: 100%;
         line-height: 1.5rem;
         margin-top: 1.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
     }
   }
 
-  .logInHeader {
+  .signInHeader {
     margin-top: 1.5rem;
     display: flex;
     align-self: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .success {
+      color: green;
+    }
 
     h1 {
       font-size: 2.4rem;
@@ -56,7 +66,7 @@
     margin: 1rem;
   }
 
-  .logInButtons {
+  .signInButtons {
     width: 28rem;
     display: flex;
     justify-content: space-between;
