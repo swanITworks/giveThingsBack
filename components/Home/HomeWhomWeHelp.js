@@ -65,7 +65,7 @@ const HomeWhomWeHelp = () => {
     const locals = useLocals();
 
     return (
-        <div name='whomWeHelp' className='homeWhomWeHelp'>
+        <div name='whomWeHelp' className='homeWhomWeHelp' id='whomWeHelp'>
             <div className='headerFourSteps'>
                 <h2>Whom we help?</h2>
                 <img src='../../assets/Decoration.svg'/>

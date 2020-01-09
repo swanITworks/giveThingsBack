@@ -11,7 +11,7 @@ const signInInputsTemplate = {
     passwordRepeat: '',
     warningPasswordRepeat: ' ',
     validationChanger: false,
-    success: '',
+    statusInfo: '',
 };
 
 const db = firebase.firestore();
@@ -27,7 +27,7 @@ function SingIn(props) {
 
     useEffect(() => {
         if (signInInputs.warningLogin === '' && signInInputs.warningPassword === '' && signInInputs.warningPasswordRepeat === '') {
-            sendData();
+            checkUserIfExistAndThenSend();
         }
     }, [signInInputs.validationChanger]);
 
@@ -85,33 +85,41 @@ function SingIn(props) {
                 password: signInInputs.password,
             })
             .then(function () {
-            console.log("Document successfully written!");
-            setSignInInputs(prevState => (
-                    {
-                        ...prevState,
-                        email:'',
-                        password:'',
-                        passwordRepeat:'',
-                        success: <div className='success'>Your account was created. Please log in</div>
-                    }
+                console.log("Document successfully written!");
+                setSignInInputs(prevState => (
+                        {
+                            ...prevState,
+                            email: '',
+                            password: '',
+                            passwordRepeat: '',
+                            statusInfo: <div className='success'>Your account was created. Please log in</div>
+                        }
+                    )
                 )
-            )
-        })
+            })
             .catch(function (error) {
                 console.error("Error writing document: ", error);
             });
     };
 
-    const checkUserIfExist = () => {
+    const checkUserIfExistAndThenSend = () => {
         db.collection('users')
-            .where('login', '==', logInData.login)
-            .where('password', '==', logInData.password)
+            .where('login', '==', signInInputs.email)
             .get()
             .then(function (querySnapshot) {
                 if (querySnapshot.docs.length !== 0) {
-                    logInHandler();
-                    console.log('jest user');
-                }
+                    setSignInInputs(
+                        prevState => (
+                            {
+                                ...prevState,
+                                password: '',
+                                passwordRepeat: '',
+                                statusInfo: <div className='exist'>This login email: {signInInputs.email} has been exist yet, please log in or use another email address</div>,
+                                email:'',
+                            }
+                        )
+                    )
+                } else sendData()
             })
     };
 
@@ -121,7 +129,7 @@ function SingIn(props) {
             <div className='signInHeader'>
                 <h1>Sign In</h1>
                 <img src='../../assets/Decoration.svg'/>
-                {signInInputs.success !== '' ? signInInputs.success : null}
+                {signInInputs.statusInfo !== '' ? signInInputs.statusInfo : null}
             </div>
             <form onSubmit={handlerSignIn}>
                 <div className='signInBox'>

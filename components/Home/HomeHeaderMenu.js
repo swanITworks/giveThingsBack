@@ -56,10 +56,10 @@ function HomeHeaderMenu(props) {
                         <li><NavLink exact to="/" activeClassName="active" className='menuButton'>Start</NavLink></li>
                         <li><HashLink to="/#fourSteps" activeClassName="active" className='menuButton'>What
                             about?</HashLink></li>
-                        <li><Link exact to="aboutUs" activeClassName="active" className='menuButton'>About Us</Link>
+                        <li><HashLink to="/#aboutUs" activeClassName="active" className='menuButton'>About Us</HashLink>
                         </li>
-                        <li><Link exact to="whomWeHelp" activeClassName="active" className='menuButton'>Fundations and
-                            Organizations</Link></li>
+                        <li><HashLink to="/#whomWeHelp" activeClassName="active" className='menuButton'>Fundations and
+                            Organizations</HashLink></li>
                         <li><Link exact to="contactUs" activeClassName="active" className='menuButton' spy={true}
                                   smooth={true}
                                   duration={500}>Contact</Link></li>
