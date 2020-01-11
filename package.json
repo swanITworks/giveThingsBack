@@ -30,6 +30,7 @@
     "@material-ui/icons": "^4.5.1",
     "chroma-js": "^2.1.0",
     "firebase": "^7.5.2",
+    "history": "^4.10.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^5.1.2",

@@ -16,14 +16,18 @@ function LogIn(props) {
             </div>
             <form>
                 <div className='logInBox'>
-                    <label>Email</label><input type='email' name='login' value={logInData.login} onChange={handlerLogInInputs}/>
+                    <label>Email</label><input
+                    style={logInData.warningLogin !== '' ? {borderBottom: '1px solid #960c0c'} : null} type='email'
+                    name='login' value={logInData.login} onChange={handlerLogInInputs}/>
                     {logInData.warningLogin}
-                    <label>Password</label><input type='password' name='password' value={logInData.password} onChange={handlerLogInInputs}/>
+                    <label>Password</label><input
+                    style={logInData.warningLogin !== '' ? {borderBottom: '1px solid #960c0c'} : null}
+                    type='password' name='password' value={logInData.password} onChange={handlerLogInInputs}/>
                     {logInData.warningPassword}
                 </div>
                 <div className='logInButtons'>
                     <NavLink exact to="/signIn" activeClassName="active" className='button'>Sign in</NavLink>
-                    <NavLink exact to='/logIn' onClick={handlerOnSubmit} className='button'>Log In</NavLink>
+                    <NavLink exact to="/form" onClick={handlerOnSubmit} className='button'>Log In</NavLink>
                 </div>
             </form>
         </div>

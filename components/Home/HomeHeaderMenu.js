@@ -10,16 +10,16 @@ function HomeHeaderMenu(props) {
             return (
                 <>
                     <li><NavLink exact to="/logIn" activeClassName="active" className='menuButton'>Log in</NavLink></li>
-                    <li><NavLink exact to="/signIn" activeClassName="active" className='menuButton'>Sign in</NavLink>
+                    <li><NavLink style={{border: '1px solid #FAD648'}} exact to="/signIn" activeClassName="active" className='menuButton'>Sign in</NavLink>
                     </li>
                 </>
             )
         } else if (check === true) {
             return (<>
                     <li>Hello! {props.logInEmail}</li>
-                    <li><NavLink exact to="/form" activeClassName="active" className='menuButton'>Give Back Stuff</NavLink>
+                    <li><NavLink exact to="/form" activeClassName="active" className='menuButton' style={{border: '1px solid #FAD648'}}>Give Back Stuff</NavLink>
                     </li>
-                    <li><NavLink onClick={props.logOutHandler} exact to="/logOut" activeClassName="active"
+                    <li><NavLink style={{border: '0px'}} onClick={props.logOutHandler} exact to="/logOut"
                                  className='menuButton'>Log Out</NavLink></li>
                 </>
             )

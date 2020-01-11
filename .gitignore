@@ -27,3 +27,6 @@ node_modules/
 .test/
 .solutions/
 .xd/
+.firebase/
+.build/
+.public/

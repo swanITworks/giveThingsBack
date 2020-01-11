@@ -17,7 +17,7 @@
       padding: 0.5rem;
       .menuButton {
         text-decoration: none;
-        padding: 1rem;
+        padding: 0.8rem;
         color: $mainFontColor;
       }
       .active {
@@ -35,15 +35,13 @@
       padding: 0.5rem;
       .menuButton {
         text-decoration: none;
-        padding: 1rem;
+        padding: 0.5rem;
         color: $mainFontColor;
+        cursor: pointer;
       }
       .active {
         color: $mainFontColor;
       }
-    }
-    li:last-child{
-      border: 1px solid $columnsColor;
     }
   }
 }

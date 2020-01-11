@@ -133,7 +133,6 @@ function HomeContactUs() {
             .catch((err) => console.log(err))
     };
 
-
     return (
         <div name='contactUs' className='homeContactUs image'>
             <div className='content'>

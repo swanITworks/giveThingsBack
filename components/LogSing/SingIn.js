@@ -114,8 +114,9 @@ function SingIn(props) {
                                 ...prevState,
                                 password: '',
                                 passwordRepeat: '',
-                                statusInfo: <div className='exist'>This login email: {signInInputs.email} has been exist yet, please log in or use another email address</div>,
-                                email:'',
+                                statusInfo: <div className='exist'>This login email: {signInInputs.email} has been exist
+                                    yet, please log in or use another email address</div>,
+                                email: '',
                             }
                         )
                     )
@@ -133,13 +134,19 @@ function SingIn(props) {
             </div>
             <form onSubmit={handlerSignIn}>
                 <div className='signInBox'>
-                    <label>Email</label><input type='text' name='email' value={signInInputs.email}
-                                               onChange={handlerSignInInputsChange}/>{signInInputs.warningLogin}
-                    <label>Password</label><input type='password' name='password' value={signInInputs.password}
-                                                  onChange={handlerSignInInputsChange}/>{signInInputs.warningPassword}
-                    <label>Repeat Password</label><input type='password' name='passwordRepeat'
-                                                         value={signInInputs.passwordRepeat}
-                                                         onChange={handlerSignInInputsChange}/>{signInInputs.warningPasswordRepeat}
+                    <label>Email</label><input
+                    style={signInInputs.warningLogin !== ' ' ? {borderBottom: '1px solid #960c0c'} : null} type='text'
+                    name='email' value={signInInputs.email}
+                    onChange={handlerSignInInputsChange}/>{signInInputs.warningLogin}
+                    <label>Password</label><input
+                    style={signInInputs.warningPassword !== ' ' ? {borderBottom: '1px solid #960c0c'} : null}
+                    type='password' name='password' value={signInInputs.password}
+                    onChange={handlerSignInInputsChange}/>{signInInputs.warningPassword}
+                    <label>Repeat Password</label><input
+                    style={signInInputs.warningPasswordRepeat !== ' ' ? {borderBottom: '1px solid #960c0c'} : null}
+                    type='password' name='passwordRepeat'
+                    value={signInInputs.passwordRepeat}
+                    onChange={handlerSignInInputsChange}/>{signInInputs.warningPasswordRepeat}
                 </div>
                 <div className='signInButtons'>
                     <NavLink exact to="/logIn" activeClassName="active" className='button'>Log in</NavLink>

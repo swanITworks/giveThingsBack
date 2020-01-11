@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import ReactDOM from "react-dom";
 import Home from "./components/Home/Home";
 import LogIn from "./components/LogSing/LogIn";
 import SignIn from "./components/LogSing/SingIn";
@@ -16,19 +17,21 @@ const logInDataTemplate = {
     warningLogin: '',
     password: '',
     warningPassword: '',
-    status:'',
-    email:'',
+    status: '',
+    email: '',
 };
 
+
 function App() {
+
 
     const [logInData, setLogInData] = useState(logInDataTemplate);
     const [isLogIn, setIsLogIn] = useState(false);
 
     const db = firebase.firestore();
 
-    const handlerOnSubmit = () => {
 
+    const handlerOnSubmit = () => {
         const conditionLoginFirst = logInData.login.length >= 4;
         const conditionLoginSecond = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(logInData.login) === false;
         const conditionPasswordFirst = logInData.password.length >= 6;
@@ -40,7 +43,7 @@ function App() {
                 setLogInData(prevState =>
                     ({
                         ...prevState,
-                        warningLogin: <div className='warning'>Email is incorrect</div>
+                        warningLogin: <div className='logInWarnings'>Email is incorrect</div>
                     })
                 )
             }
@@ -48,14 +51,14 @@ function App() {
                 setLogInData(prevState =>
                     ({
                         ...prevState,
-                        warningPassword: <div className='warning'>Password is incorrect</div>
+                        warningPassword: <div className='logInWarnings'>Password is incorrect</div>
                     })
                 )
             } else {
                 setLogInData(prevState =>
                     ({
                         ...prevState,
-                        warningPassword:'',
+                        warningPassword: '',
                     })
                 )
             }
@@ -75,7 +78,6 @@ function App() {
     };
 
     const logInHandler = () => {
-        setIsLogIn(true);
         setLogInData(prevState => (
             {
                 ...prevState,
@@ -83,10 +85,11 @@ function App() {
                 login: '',
                 password: '',
                 success: <div className='success'>Your are login</div>,
-                warningPassword:'',
+                warningPassword: '',
                 warningLogin: '',
             }
-        ))
+        ));
+        setIsLogIn(true);
     };
 
     const logOutHandler = () => {
@@ -96,7 +99,7 @@ function App() {
                 ...prevState,
                 login: '',
                 password: '',
-                success:'',
+                success: '',
             }
         ))
     };
@@ -128,7 +131,8 @@ function App() {
                         <Form isLogIn={isLogIn} logOutHandler={logOutHandler} logInLogin={logInData.login}
                               logInPass={logInData.password} logInEmail={logInData.email}/>
                         :
-                        <LogIn isLogIn={isLogIn} logInHandler={logInHandler} logInData={logInData}/>
+                        <LogIn isLogIn={isLogIn} logInHandler={logInHandler} handlerLogInInputs={handlerLogInInputs}
+                               handlerOnSubmit={handlerOnSubmit} logInData={logInData}/>
                     }
                 </Route>
             </>

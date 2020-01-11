@@ -19,15 +19,21 @@
       background-color: $backgroundFourSteps;
       display: flex;
       flex-direction: column;
-      padding: 2rem 3rem 0.5rem 3rem;
+      padding: 2rem 3rem 1rem 3rem;
       width: 15rem;
+
+      .logInWarnings {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        color: #960c0c;
+      }
 
       input {
         border-bottom: 1px solid $borderColor;
         width: 100%;
         line-height: 1.5rem;
         margin-top: 1.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
     }
   }
