@@ -33,6 +33,7 @@
     "history": "^4.10.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-responsive": "^8.0.1",
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^1.2.2",
     "react-scroll": "^1.7.14",

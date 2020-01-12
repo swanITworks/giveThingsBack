@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
-import ReactDOM from "react-dom";
-import Home from "./components/Home/Home";
-import LogIn from "./components/LogSing/LogIn";
-import SignIn from "./components/LogSing/SingIn";
-import LogOut from './components/LogSing/LogOut';
-import Form from './components/Form/Form';
+import Home from "./components/Desktop/Home/Home";
+import LogIn from "./components/Desktop/LogSing/LogIn";
+import SignIn from "./components/Desktop/LogSing/SingIn";
+import LogOut from './components/Desktop/LogSing/LogOut';
+import Form from './components/Desktop/Form/Form';
+import {useMediaQuery} from 'react-responsive';
 import firebase from "./config";
+import MobileHome from "./components/Mobile/Home/MobileHome";
 
 import {
     HashRouter,
@@ -19,6 +20,16 @@ const logInDataTemplate = {
     warningPassword: '',
     status: '',
     email: '',
+};
+
+const DesktopAndTablet = ({children}) => {
+    const isDesktop = useMediaQuery({minWidth: 768});
+    return isDesktop ? children : null
+};
+
+const Mobile = ({children}) => {
+    const isMobile = useMediaQuery({maxWidth: 767});
+    return isMobile ? children : null
 };
 
 
@@ -111,7 +122,7 @@ function App() {
 
     return (
         <HashRouter>
-            <>
+            <DesktopAndTablet>
                 <Route exact path='/'>
                     <Home isLogIn={isLogIn} logInHandler={logInHandler} logOutHandler={logOutHandler}
                           location={location.pathname} logInEmail={logInData.email}/>
@@ -131,12 +142,17 @@ function App() {
                         <Form isLogIn={isLogIn} logOutHandler={logOutHandler} logInLogin={logInData.login}
                               logInPass={logInData.password} logInEmail={logInData.email}/>
                         :
-                        <LogIn isLogIn={isLogIn} logInHandler={logInHandler} handlerLogInInputs={handlerLogInInputs}
+                        <LogIn isLogIn={isLogIn} logInHandler={logInHandler}
+                               handlerLogInInputs={handlerLogInInputs}
                                handlerOnSubmit={handlerOnSubmit} logInData={logInData}/>
                     }
                 </Route>
-            </>
+            </DesktopAndTablet>
+            <Mobile>
+                <MobileHome/>
+            </Mobile>
         </HashRouter>
+
     )
 }
 

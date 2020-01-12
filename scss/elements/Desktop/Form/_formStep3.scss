@@ -1,0 +1,110 @@
+@import "../../../settings/colors";
+@import "../../../settings/fonts";
+@import "../../../settings/colors";
+@import "../../../settings/fonts";
+
+.FormStep3Warning {
+  background-color: $columnsColor;
+  padding: 1.15rem 4rem;
+
+  h2 {
+    font-size: 2.25rem;
+    font-family: $font-base-semi-bold;
+    line-height: 2.5rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    font-family: OpenSans;
+  }
+}
+
+.Step3 {
+  background-image: url('/assets/Background-Form.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 85%;
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .selectTown {
+    margin-bottom: 3rem;
+  }
+
+  p {
+    font-family: OpenSansLight;
+    font-size: 1.5rem;
+    margin-bottom: 5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-family: $font-base-semi-bold;
+    margin-bottom: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-family: $font-base-semi-bold;
+    margin-top: 2.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  select {
+    font-size: 1.5rem;
+    font-family: $font-base-light;
+    margin-left: 0.5rem;
+    margin-bottom: 2.5rem;
+
+    .hide {
+      display: none;
+    }
+  }
+
+  input {
+    width: 37rem;
+    height: 2rem;
+    border: 1px solid $mainFontColor;
+    line-height: 2.3rem;
+    font-size: 1.5rem;
+    font-family: OpenSansLight;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    flex-wrap: wrap;
+    li {
+      margin-bottom: 1.3rem;
+    }
+  }
+
+  .buttons {
+    display: flex;
+
+    .button {
+      justify-self: flex-end;
+      padding: 1.5rem 2rem;
+      border: 1px solid $mainFontColor;
+      width: 5.9rem;
+      font-size: 1.5rem;
+      font-family: $font-base-light;
+      text-align: center;
+      cursor: pointer;
+      margin-right: 2rem;
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+    }
+  }
+}

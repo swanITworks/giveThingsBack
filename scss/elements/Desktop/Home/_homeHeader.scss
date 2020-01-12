@@ -1,0 +1,12 @@
+@import "../../../settings/breakingPoints";
+
+.header {
+  display: flex;
+  width: 100%;
+  background-image: url('/assets/Home-Hero-Image.jpg');
+  background-position: -150%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+  flex-direction: column;
+}

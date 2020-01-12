@@ -1,0 +1,9 @@
+@import "../../../settings/colors";
+@import "../../../settings/fonts";
+
+div.mobileHomeHeader {
+  background-color: $backgroundFourSteps;
+  align-items: center;
+  margin: 1rem 0rem;
+  padding: 1rem;
+}
