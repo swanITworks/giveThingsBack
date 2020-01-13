@@ -1,7 +1,7 @@
 @import "../../../settings/colors";
 @import "../../../settings/fonts";
 
-div.mobileHomeHeader {
+div.mobileHomeSignIn {
   background-color: $backgroundFourSteps;
   align-items: center;
   margin: 1rem 0rem;
@@ -10,20 +10,15 @@ div.mobileHomeHeader {
   color: $mainFontColor;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
 
   h2 {
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
-    align-self: flex-start;
+    font-family: OpenSansSemiBold;
   }
-  h1 {
-    line-height: 2rem;
-    align-self: flex-start;
-  }
-  h3 {
-    margin-bottom: 1rem;
-    align-self: flex-start;
-  }
+
   button {
     background-color: $columnsColor;
     color: white;
@@ -31,7 +26,6 @@ div.mobileHomeHeader {
     font-family: OpenSansSemiBold;
     font-size: 1.2rem;
     border-radius: 0.5rem;
-    align-self: flex-end;
     margin-right: 2rem;
   }
 }
