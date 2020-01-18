@@ -1,0 +1,69 @@
+@import "../../../settings/colors";
+@import "../../../settings/fonts";
+
+.homeWhomWeHelp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .headerFourSteps {
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: 2.3rem;
+      color: $mainFontColor;
+      font-family: $font-base;
+      margin-bottom: 2rem;
+    }
+
+    img {
+      color: $svgColor;
+    }
+  }
+
+  .homeWhomHelpButtons {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+
+    .homeWhomHelpButton {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      padding: 1.5rem;
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .button {
+        font-family: OpenSansLight;
+        text-decoration: none;
+        color: $mainFontColor;
+        font-size: 1.4rem;
+      }
+
+      .active {
+        font-family: OpenSansLight;
+      }
+    }
+  }
+
+  .homeWhomHelpText {
+    width: 40%;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    p {
+      font-size: 1.5rem;
+      font-family: $font-base-light;
+    }
+  }
+}
+

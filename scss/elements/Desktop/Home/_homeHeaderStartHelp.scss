@@ -1,0 +1,55 @@
+@import "../../../settings/colors";
+@import "../../../settings/fonts";
+
+.homeHeaderStartHelp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  background-color: $buttonsBackground;
+  flex-wrap: wrap;
+  margin: 10%;
+
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+    line-height: 1.5;
+  }
+
+  .homeHeaderStartHelpButtons {
+    margin-top: 1.5rem;
+    display: flex;
+
+    .buttonLink {
+      font-family: OpenSansLight;
+      text-decoration: none;
+      color: $mainFontColor;
+      font-size: 2.4rem;
+    }
+
+    .button {
+      border: 1px solid $mainFontColor;
+      padding: 1rem;
+      margin: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      max-width: 15rem;
+    }
+
+    .active {
+      font-family: OpenSansLight;
+    }
+  }
+
+  img {
+    margin: 1rem;
+  }
+}
+
