@@ -44,7 +44,7 @@ function FormStepConfirmation(props) {
                 </div>
                 <div className='buttons'>
                     <button className='button' onClick={props.handlerStepDown}>Back</button>
-                    <button className='button' onClick={handlerSubmit}>Confirm</button>
+                    <button className='button' onClick={()=>{handlerSubmit}}>Confirm</button>
                 </div>
             </div>
         </>

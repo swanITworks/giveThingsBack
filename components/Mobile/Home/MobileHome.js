@@ -9,10 +9,14 @@ import MobileHomeContact from "./MobileHomeContact";
 
 function MobileHome(props) {
 
-    const [burgerMenuIsOn, setBurgerMenuIsOn] = useState(false);
+    const [burgerMenuIsOn, setBurgerMenuIsOn] = useState(null);
 
     const handlerMenuClick = () => {
-        setBurgerMenuIsOn(prevState => !prevState)
+        if (burgerMenuIsOn === null) {
+            setBurgerMenuIsOn(true)
+        } else (
+            setBurgerMenuIsOn(prevState => !prevState)
+        )
     };
 
     const {logInEmail, location, logOutHandler, isLogIn} = props;

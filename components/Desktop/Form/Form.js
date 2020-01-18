@@ -8,7 +8,7 @@ function Form(props) {
     return (
         <div className='mainContainer'>
             <FormHeader isLogIn={isLogIn} logOutHandler={logOutHandler} location={location} logInLogin={logInLogin} logInEmail={logInEmail}/>
-            <FormSteps logInLogin={logInLogin} logInPass={logInPass}/>
+            <FormSteps logInLogin={logInLogin} logInPass={logInPass} logInEmail={logInEmail}/>
             <HomeContactUs/>
         </div>
     )

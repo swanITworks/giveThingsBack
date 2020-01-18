@@ -5,9 +5,14 @@ import HomeHeaderStartHelp from "./HomeHeaderStartHelp";
 function HomeHeader(props) {
     const {logInEmail, location, logOutHandler, isLogIn} = props;
     return (
-        <div className='header'>
+        <div className='homeHeader'>
+            <div className='leftSide'>
+                <div className='image'></div>
+            </div>
+            <div className='rightSide'>
                 <HomeHeaderMenu isLogIn={isLogIn} logOutHandler={logOutHandler} location={location} logInEmail={logInEmail}/>
                 <HomeHeaderStartHelp/>
+            </div>
         </div>
     )
 }

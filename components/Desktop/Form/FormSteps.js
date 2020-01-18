@@ -108,6 +108,9 @@ function FormSteps(props) {
             .then(function (querySnapshot) {
                 collectionLength = querySnapshot.docs.length;
                 sendData();
+            })
+            .catch(function () {
+                console.log('sorry kurwa ale nie ma takiej kolekcji');
             });
     };
 
@@ -133,6 +136,7 @@ function FormSteps(props) {
             })
             .catch(function () {
                 console.error("Error writing document: ", error);
+                console.log('chujnia')
             });
         console.log('sent');
     };
@@ -140,6 +144,7 @@ function FormSteps(props) {
     const handlerSubmit = () => {
 
         checkLengthOfCollectionAndSendData();
+
     };
 
     const showsStep = (number) => {

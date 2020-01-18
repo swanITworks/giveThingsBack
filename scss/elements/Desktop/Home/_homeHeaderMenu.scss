@@ -6,8 +6,9 @@
   height: 95px;
   display: flex;
   flex-direction: column;
-  margin-right: 5rem;
   margin-top: 2rem;
+  width: 100%;
+  align-items: flex-start;
 
   @media (max-width: $phones) {
     display: none;
@@ -17,11 +18,11 @@
     margin-top: 1rem;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
     flex-wrap: wrap;
-    
+    width: 100%;
+
     li {
-      padding: 0.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -41,8 +42,10 @@
   }
   .homeHeaderLogInMenu {
     display: flex;
+    align-self: flex-end;
     justify-content: flex-end;
     font-size: 0.8rem;
+
 
     li {
       padding: 0.5rem;
