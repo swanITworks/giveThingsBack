@@ -29,5 +29,5 @@ node_modules/
 .xd/
 .firebase/
 .build/
-.public/
+public/
 config.js
