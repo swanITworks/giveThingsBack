@@ -9,17 +9,9 @@ import MobileHomeContact from "./MobileHomeContact";
 
 function MobileHome(props) {
 
-    const [burgerMenuIsOn, setBurgerMenuIsOn] = useState(null);
 
-    const handlerMenuClick = () => {
-        if (burgerMenuIsOn === null) {
-            setBurgerMenuIsOn(true)
-        } else (
-            setBurgerMenuIsOn(prevState => !prevState)
-        )
-    };
 
-    const {logInEmail, location, logOutHandler, isLogIn} = props;
+    const {logInEmail, location, logOutHandler, isLogIn, burgerMenuIsOn, handlerMenuClick} = props;
     return (
         <div className='mainContainerMobile'>
             <MobileHomeMenu isLogIn={isLogIn} logOutHandler={logOutHandler} location={location} logInEmail={logInEmail}
