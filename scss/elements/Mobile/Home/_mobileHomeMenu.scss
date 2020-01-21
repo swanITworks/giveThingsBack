@@ -8,16 +8,41 @@ div.mobileHomeMenu {
   align-items: center;
   width: 100%;
 
-  div.burgerMenuIcon {
-    margin: 0.8rem;
+  div.rightSide {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
 
-    div.burgerLevel {
-      width: 35px;
-      height: 5px;
-      background-color: $mainFontColor;
-      margin: 6px 0;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div.userIcons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        color: $mainFontColor;
+        font-size: 2rem;
+        margin: 1rem;
+      }
+
+      img {
+        width: 3rem;
+      }
+    }
+
+    div.burgerMenuIcon {
+      margin: 0.8rem;
+
+      div.burgerLevel {
+        width: 35px;
+        height: 5px;
+        background-color: $mainFontColor;
+        margin: 6px 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
     }
   }
 
@@ -30,6 +55,8 @@ div.mobileHomeMenu {
   }
 
   .burgerMenu {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     text-align: center;
     padding: 1rem;
@@ -56,6 +83,8 @@ div.mobileHomeMenu {
   }
 
   .burgerMenuHide {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     text-align: center;
     padding: 1rem;

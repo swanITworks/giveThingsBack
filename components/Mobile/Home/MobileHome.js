@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import MobileHomeMenu from "./MobileHomeMenu";
 import MobileHomeHeader from "./MobileHomeHeader";
 import MobileHomeFourSteps from "./MobileHomeFourSteps";
@@ -8,8 +8,6 @@ import MobileHomeContact from "./MobileHomeContact";
 
 
 function MobileHome(props) {
-
-
 
     const {logInEmail, location, logOutHandler, isLogIn, burgerMenuIsOn, handlerMenuClick} = props;
     return (

@@ -1,0 +1,83 @@
+@import "../../../settings/colors";
+@import "../../../settings/fonts";
+
+div.mobileFormHeader {
+  background-color: $backgroundFourSteps;
+  align-items: center;
+  margin: 1rem 0rem;
+  padding: 1rem;
+  font-family: OpenSans;
+  color: $mainFontColor;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: OpenSansSemiBold;
+  }
+
+  h1 {
+    line-height: 2rem;
+    font-size: 2rem;
+    font-family: OpenSansSemiBold;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    font-family: OpenSansSemiBold;
+  }
+
+
+  div.circles {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+
+    div.circle {
+      height: 120px;
+      width: 120px;
+      border: 2px solid $columnsColor;
+      border-radius: 120px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $columnsColor;
+      font-size: 2rem;
+    }
+  }
+
+  div.buttonsHeader {
+    display: flex;
+    margin-top: 2rem;
+    width: 100%;
+    justify-content: space-between;
+
+
+    button {
+      background-color: $columnsColor;
+      color: white;
+      padding: 1rem;
+      font-family: OpenSansSemiBold;
+      font-size: 1.2rem;
+      border-radius: 0.5rem;
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
+  }
+
+  div.circlesDescriptions{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    div.description{
+
+    }
+  }
+}

@@ -6,6 +6,7 @@ import FormStep4 from "./FormStep4";
 import FormStepConfirmation from "./FormStepsConfirmation";
 import FormStepsSuccess from "./FormStepsSuccess";
 import firebase from "../../../config.js";
+import {useMediaQuery} from 'react-responsive';
 
 const inputsTemplate = {
     street: '',
@@ -24,6 +25,16 @@ const isSelectedTemplate = {
     option3: false,
     option4: false,
     option5: false,
+};
+
+const DesktopAndTablet = ({children}) => {
+    const isDesktop = useMediaQuery({minWidth: 768});
+    return isDesktop ? children : null
+};
+
+const Mobile = ({children}) => {
+    const isMobile = useMediaQuery({maxWidth: 767});
+    return isMobile ? children : null
 };
 
 function FormSteps(props) {
@@ -149,8 +160,13 @@ function FormSteps(props) {
 
     const showsStep = (number) => {
         if (number === 1) {
-            return <FormStep1 handlerSelectStep1={handlerSelectStep1} selectedOptionStep1={selectedOptionStep1}
-                              handlerStepUp={handlerStepUp} optionsStep1={options[0]}/>
+            return (
+                <>
+                        <FormStep1 handlerSelectStep1={handlerSelectStep1} selectedOptionStep1={selectedOptionStep1}
+                                   handlerStepUp={handlerStepUp} optionsStep1={options[0]}/>
+
+                </>
+            )
         }
 
         if (number === 2) {
@@ -191,6 +207,11 @@ function FormSteps(props) {
 
     return (
         <div className='formSteps'>
+            <Mobile>
+                <div className='formStepsHeader'><h2>Give back the things you don't want anymore for people that need
+                    it.</h2>
+                    <h3>Four steps are enough</h3></div>
+            </Mobile>
             <form onSubmit={handlerSubmit} className='steps'>
                 {showsStep(step)}
             </form>

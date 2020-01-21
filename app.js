@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Home from "./components/Desktop/Home/Home";
 import SignIn from "./components/Desktop/LogSing/SingIn";
 import LogOut from './components/Desktop/LogSing/LogOut';
@@ -8,11 +8,17 @@ import firebase from "./config";
 import MobileHome from "./components/Mobile/Home/MobileHome";
 import MobileLogIn from "./components/Mobile/MobileLogSing/MobileLogIn";
 import LogIn from "./components/Desktop/LogSing/LogIn";
+import MobileSignIn from "./components/Mobile/MobileLogSing/MobileSignIn";
+import MobileForm from "./components/Mobile/MobileForm/MobileForm";
+import MobileLogOut from "./components/Mobile/MobileLogSing/MobileLogOut";
+import FormSteps from "./components/Desktop/Form/FormSteps";
 
 import {
     HashRouter,
     Route,
 } from 'react-router-dom';
+import MobileHomeMenu from "./components/Mobile/Home/MobileHomeMenu";
+import MobileHomeContact from "./components/Mobile/Home/MobileHomeContact";
 
 
 const logInDataTemplate = {
@@ -52,8 +58,6 @@ function App() {
             setBurgerMenuIsOn(prevState => !prevState)
         )
     };
-
-
 
     const handlerOnSubmit = () => {
         const conditionLoginFirst = logInData.login.length >= 4;
@@ -160,32 +164,59 @@ function App() {
                                handlerOnSubmit={handlerOnSubmit} logInData={logInData}/>
                     }
                 </Route>
+                <Route exact path='/signedIn'>
+                    {isLogIn === true ?
+                        <Form isLogIn={isLogIn} logOutHandler={logOutHandler} logInLogin={logInData.login}
+                              logInPass={logInData.password} logInEmail={logInData.email}/>
+                        :
+                        <LogIn isLogIn={isLogIn} logInHandler={logInHandler}
+                               handlerLogInInputs={handlerLogInInputs}
+                               handlerOnSubmit={handlerOnSubmit} logInData={logInData}/>
+                    }
+                </Route>
             </DesktopAndTablet>
             <Mobile>
                 <Route exact path='/'>
                     <MobileHome isLogIn={isLogIn} logInHandler={logInHandler} logOutHandler={logOutHandler}
-                                location={location.pathname} logInEmail={logInData.email} handlerMenuClick={handlerMenuClick} burgerMenuIsOn={burgerMenuIsOn}/>
+                                location={location.pathname} logInEmail={logInData.email}
+                                handlerMenuClick={handlerMenuClick} burgerMenuIsOn={burgerMenuIsOn}/>
                 </Route>
                 <Route exact path='/logIn'>
                     <MobileLogIn isLogIn={isLogIn} logInHandler={logInHandler} handlerLogInInputs={handlerLogInInputs}
-                           handlerOnSubmit={handlerOnSubmit} logInData={logInData} handlerMenuClick={handlerMenuClick} burgerMenuIsOn={burgerMenuIsOn}/>
+                                 handlerOnSubmit={handlerOnSubmit} logInData={logInData}
+                                 handlerMenuClick={handlerMenuClick} burgerMenuIsOn={burgerMenuIsOn}/>
                 </Route>
-                {/*<Route exact path='/signIn'>*/}
-                {/*    <MobileSignIn isLogIn={isLogIn}/>*/}
-                {/*</Route>*/}
-                {/*<Route exact path='/logOut'>*/}
-                {/*    <MobileLogOut isLogIn={isLogIn}/>*/}
-                {/*</Route>*/}
-                {/*<Route exact path='/form'>*/}
-                {/*    {isLogIn === true ?*/}
-                {/*        <MobileForm isLogIn={isLogIn} logOutHandler={logOutHandler} logInLogin={logInData.login}*/}
-                {/*              logInPass={logInData.password} logInEmail={logInData.email}/>*/}
-                {/*        :*/}
-                {/*        <MobileLogIn isLogIn={isLogIn} logInHandler={logInHandler}*/}
-                {/*               handlerLogInInputs={handlerLogInInputs}*/}
-                {/*               handlerOnSubmit={handlerOnSubmit} logInData={logInData}/>*/}
-                {/*    }*/}
-                {/*</Route>*/}
+                <Route exact path='/signIn'>
+                    <MobileSignIn isLogIn={isLogIn}/>
+                </Route>
+                <Route exact path='/signedIn'>
+                    {isLogIn === true ?
+                        <MobileForm isLogIn={isLogIn} logOutHandler={logOutHandler} logInLogin={logInData.login}
+                                    logInPass={logInData.password} logInEmail={logInData.email}
+                                    handlerMenuClick={handlerMenuClick} burgerMenuIsOn={burgerMenuIsOn}/>
+                        :
+                        <MobileLogIn isLogIn={isLogIn} logInHandler={logInHandler}
+                                     handlerLogInInputs={handlerLogInInputs}
+                                     handlerOnSubmit={handlerOnSubmit} logInData={logInData}/>
+                    }
+                </Route>
+                <Route exact path='/form'>
+                    {isLogIn === true ?
+                        <>
+                            <MobileHomeMenu/>
+                            <FormSteps isLogIn={isLogIn} logOutHandler={logOutHandler} logInLogin={logInData.login}
+                                       logInPass={logInData.password} logInEmail={logInData.email}/>
+                            <MobileHomeContact/>
+                        </>
+                        :
+                        <MobileLogIn isLogIn={isLogIn} logInHandler={logInHandler}
+                                     handlerLogInInputs={handlerLogInInputs}
+                                     handlerOnSubmit={handlerOnSubmit} logInData={logInData}/>
+                    }
+                </Route>
+                <Route exact path='/logOut'>
+                    <MobileLogOut isLogIn={isLogIn}/>
+                </Route>
             </Mobile>
         </HashRouter>
 

@@ -27,7 +27,7 @@ function MobileLogIn(props) {
                 </div>
                 <div className='logInButtons'>
                     <NavLink exact to="/signIn" activeClassName="active" className='button'>Sign in</NavLink>
-                    <NavLink exact to="/form" onClick={handlerOnSubmit} className='button'>Log In</NavLink>
+                    <NavLink exact to="/signedIn" onClick={handlerOnSubmit} className='button'>Log In</NavLink>
                 </div>
             </form>
         </div>
