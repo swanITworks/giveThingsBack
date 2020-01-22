@@ -7,3 +7,12 @@
   border: solid 1px $mainFontColor;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .myRadio {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: solid 1px $mainFontColor;
+    cursor: pointer;
+  }
+}

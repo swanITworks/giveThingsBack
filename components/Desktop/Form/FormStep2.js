@@ -11,14 +11,7 @@ function FormStep2(props) {
         if (selectedOptionStep2 !== 'choose') {
             props.handlerStepUp()
         } else {
-            let newWarning = <div className='warning' style={{
-                backgroundColor: '#FAD648',
-                width: '30rem',
-                textAlign: 'center',
-                fontFamily: 'OpenSans',
-                fontSize: '1.5rem',
-                padding: '1rem'
-            }}>Please choose quantity before go further</div>;
+            let newWarning = <div className='warning'>Please choose quantity before go further</div>;
             setWarning(newWarning)
         }
     };
@@ -32,7 +25,7 @@ function FormStep2(props) {
             </div>
             <div className='Step2'>
                 <div>
-                    <p>Step 2/4</p>
+                    <p className='stepNumber'>Step 2/4</p>
                     <h2>Enter the number of 60l bags, which you packed in:</h2>
                     <div style={{display: "flex", alignItems: "center"}}>
                         <label>Quantity of 60l bags:</label>
@@ -41,7 +34,6 @@ function FormStep2(props) {
                                       handlerSelectStep2={handlerSelectStep2}/>
                         </div>
                     </div>
-
                 </div>
                 {warning}
                 <div className='buttons'>

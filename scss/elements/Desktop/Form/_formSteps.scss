@@ -2,10 +2,39 @@
 @import "../../../settings/fonts";
 
 .formSteps {
+  .mobileFormStepsHeader {
+
+    .mobileFormStepsTitle {
+      background-color: $backgroundFourSteps;
+      padding: 2rem;
+      font-family: OpenSansSemiBold;
+      h2 {
+
+      }
+      h3 {
+        margin-top: 1rem;
+      }
+    }
+
+    .mobileFormStepsRectangles {
+      display: flex;
+      justify-content: center;
+
+      .rectangle {
+        background-color: $backgroundFourSteps;
+        border: 1px solid $backgroundFourSteps;
+        padding: 0.5rem;
+        margin: 1rem;
+        color: $mainFontColor;
+        font-family: OpenSansSemiBold;
+        cursor: default;
+        box-shadow: 3px 6px 5px $mainFontColor;
+      }
+    }
+  }
   .steps {
     display: flex;
     flex-direction: column;
-
-
   }
 }
+

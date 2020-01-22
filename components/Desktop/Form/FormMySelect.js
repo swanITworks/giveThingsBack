@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import shape from "@material-ui/core/styles/shape";
+import {useMediaQuery} from 'react-responsive';
 
 const options = [
     {label: 1},
@@ -8,6 +8,16 @@ const options = [
     {label: 4},
     {label: 5},
 ];
+
+const DesktopAndTablet = ({children}) => {
+    const isDesktop = useMediaQuery({minWidth: 768});
+    return isDesktop ? children : null
+};
+
+const Mobile = ({children}) => {
+    const isMobile = useMediaQuery({maxWidth: 767});
+    return isMobile ? children : null
+};
 
 function MySelect(props) {
 
@@ -46,8 +56,9 @@ function MySelect(props) {
 
     const ShowOptions = (props) => {
         return options.map(item => {
-            return <div className='option' key={item.label} id={item.label} onClick={props.handlerSelect}
-                        style={{margin: '0.5rem',width:'3rem', textAlign: 'center'}}>{item.label}</div>
+            return (
+                <div className='option' key={item.label} id={item.label} onClick={props.handlerSelect}>{item.label}</div>
+            )
         })
     };
 
@@ -58,31 +69,60 @@ function MySelect(props) {
 
     return (
         <>
-            <div onClick={handlerShowOptions} style={select}>
-                <div style={{display: 'flex'}}>
-                    {selectedOptionStep2 === 'choose' ?
-                        <>
-                            <div style={crossOut}></div>
-                            <div style={{fontSize: '1.5rem'}}>{selectedOptionStep2}</div>
-                            <div style={crossOut}></div>
-                        </>
-                        : <div style={{fontSize: '1.5rem'}}>{selectedOptionStep2}</div>}
+            <DesktopAndTablet>
+                <div onClick={handlerShowOptions} style={select}>
+                    <div style={{display: 'flex'}}>
+                        {selectedOptionStep2 === 'choose' ?
+                            <>
+                                <div style={crossOut}></div>
+                                <div style={{fontSize: '1.5rem'}}>{selectedOptionStep2}</div>
+                                <div style={crossOut}></div>
+                            </>
+                            : <div style={{fontSize: '1.5rem'}}>{selectedOptionStep2}</div>}
+                    </div>
+                    <div style={arrow}></div>
                 </div>
-                <div style={arrow}></div>
-            </div>
-            {isClicked == true ? <div onMouseLeave={handlerShowOptions} style={{
-                display: 'flex',
-                flexDirection: 'column',
-                textAlign: 'right',
-                border: '1px solid black',
-                alignItems: 'flexEnd',
-                justifyContent: 'flexEnd',
-                marginTop: '0.5rem',
-                position: 'absolute',
-                transform: 'translateY(3rem)',
-            }}><ShowOptions handlerSelect={(e) => {
-                handlerTwoFunctions(e.target)
-            }}/></div> : null}
+                {isClicked == true ? <div onMouseLeave={handlerShowOptions} style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    textAlign: 'right',
+                    border: '1px solid black',
+                    alignItems: 'flexEnd',
+                    justifyContent: 'flexEnd',
+                    marginTop: '0.5rem',
+                    position: 'absolute',
+                    transform: 'translateY(3rem)',
+                }}><ShowOptions handlerSelect={(e) => {
+                    handlerTwoFunctions(e.target)
+                }}/></div> : null}
+            </DesktopAndTablet>
+            <Mobile>
+                <div onClick={handlerShowOptions} style={select}>
+                    <div style={{display: 'flex'}}>
+                        {selectedOptionStep2 === 'choose' ?
+                            <>
+                                <div style={crossOut}></div>
+                                <div style={{fontSize: '0.8rem'}}>{selectedOptionStep2}</div>
+                                <div style={crossOut}></div>
+                            </>
+                            : <div style={{fontSize: '0.8rem'}}>{selectedOptionStep2}</div>}
+                    </div>
+                    <div style={arrow}></div>
+                </div>
+                {isClicked == true ? <div onMouseLeave={handlerShowOptions} style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    textAlign: 'right',
+                    border: '1px solid black',
+                    alignItems: 'flexEnd',
+                    justifyContent: 'flexEnd',
+                    marginTop: '0.5rem',
+                    position: 'absolute',
+                    transform: 'translateY(3rem)',
+                }}><ShowOptions handlerSelect={(e) => {
+                    handlerTwoFunctions(e.target)
+                }}/></div> : null}
+            </Mobile>
         </>
     )
 }

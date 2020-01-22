@@ -40,15 +40,10 @@ const Mobile = ({children}) => {
     return isMobile ? children : null
 };
 
-
 function App() {
-
-
     const [logInData, setLogInData] = useState(logInDataTemplate);
-    const [isLogIn, setIsLogIn] = useState(false);
-
+    const [isLogIn, setIsLogIn] = useState(true);
     const db = firebase.firestore();
-
     const [burgerMenuIsOn, setBurgerMenuIsOn] = useState(null);
 
     const handlerMenuClick = () => {

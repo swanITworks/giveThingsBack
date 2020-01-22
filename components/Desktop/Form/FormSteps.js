@@ -153,18 +153,15 @@ function FormSteps(props) {
     };
 
     const handlerSubmit = () => {
-
         checkLengthOfCollectionAndSendData();
-
     };
 
     const showsStep = (number) => {
         if (number === 1) {
             return (
                 <>
-                        <FormStep1 handlerSelectStep1={handlerSelectStep1} selectedOptionStep1={selectedOptionStep1}
-                                   handlerStepUp={handlerStepUp} optionsStep1={options[0]}/>
-
+                    <FormStep1 handlerSelectStep1={handlerSelectStep1} selectedOptionStep1={selectedOptionStep1}
+                               handlerStepUp={handlerStepUp} optionsStep1={options[0]}/>
                 </>
             )
         }
@@ -196,8 +193,7 @@ function FormSteps(props) {
                                          selectedOptionStep3Who={selectedOptionStep3Who}
                                          selectedOptionStep3Town={selectedOptionStep3Town}
                                          inputsData={inputsData} handlerSubmit={handlerSubmit}
-                                         handlerSuccess={handlerSuccess} selectedArray={selectedArray}
-            />
+                                         handlerSuccess={handlerSuccess} selectedArray={selectedArray}/>
         }
 
         if (number === 6) {
@@ -208,9 +204,40 @@ function FormSteps(props) {
     return (
         <div className='formSteps'>
             <Mobile>
-                <div className='formStepsHeader'><h2>Give back the things you don't want anymore for people that need
-                    it.</h2>
-                    <h3>Four steps are enough</h3></div>
+                <div className='mobileFormStepsHeader'>
+                    <div className='mobileFormStepsTitle'>
+                        <h2>Give back the things you don't want anymore for people that need
+                            it.</h2>
+                        <h3>Four steps are enough</h3>
+                    </div>
+                    <div className='mobileFormStepsRectangles'>
+                        <div className='rectangle'
+                             style={(step === 1 || step === 2 || step === 3 || step === 4 || step === 5) ? {
+                                 backgroundColor: '#FAD648',
+                                 border: '1px solid #3C3C3C'
+                             } : null}>1
+                        </div>
+                        <div className='rectangle' style={(step === 2 || step === 3 || step === 4 || step === 5) ? {
+                            backgroundColor: '#FAD648',
+                            border: '1px solid #3C3C3C'
+                        } : null}>2
+                        </div>
+                        <div className='rectangle' style={(step === 3 || step === 4 || step === 5) ? {
+                            backgroundColor: '#FAD648',
+                            border: '1px solid #3C3C3C'
+                        } : null}>3
+                        </div>
+                        <div className='rectangle' style={(step === 4 || step === 5) ? {
+                            backgroundColor: '#FAD648',
+                            border: '1px solid #3C3C3C'
+                        } : null}>4
+                        </div>
+                        <div className='rectangle'
+                             style={(step === 5) ? {backgroundColor: '#FAD648', border: '1px solid #3C3C3C'} : null}>
+                            <i className="fas fa-check"></i>
+                        </div>
+                    </div>
+                </div>
             </Mobile>
             <form onSubmit={handlerSubmit} className='steps'>
                 {showsStep(step)}

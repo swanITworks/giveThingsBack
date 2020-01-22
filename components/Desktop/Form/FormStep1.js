@@ -12,7 +12,7 @@ function FormStep1(props) {
         if (selectedOptionStep1 !== '') {
             props.handlerStepUp()
         } else {
-            let newWarning = <li className='warning' style={{backgroundColor:'#FAD648', width:'30rem', textAlign:'center', fontFamily:'OpenSans', fontSize:'1.5rem', padding:'1rem'}}>Please check one option before go further</li>;
+            let newWarning = <li className='warning'>Please check one option before go further</li>;
             setWarning(newWarning)
         }
     };
@@ -25,7 +25,7 @@ function FormStep1(props) {
             </div>
             <div className='Step1'>
                 <div>
-                    <p>Step 1/4</p>
+                    <p className='stepNumber'>Step 1/4</p>
                     <h2>Choose what do you want to get back:</h2>
                     <ul>
                         <li><MyRadio id={optionsStep1[0]} handlerSelectStep1={handlerSelectStep1}
