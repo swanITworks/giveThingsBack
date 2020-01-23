@@ -16,5 +16,23 @@
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
 
+}
 
+@media (max-width: 768px){
+  .formStep3WhomWeHelpItem {
+    border: solid 1px $mainFontColor;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    font-family: OpenSansLight;
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+
+  }
 }

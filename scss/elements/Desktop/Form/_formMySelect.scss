@@ -1,11 +1,27 @@
 @import "../../../settings/colors";
 @import "../../../settings/fonts";
 
-.option{
+.option {
+   font-size: 1.5rem;
+   margin: 0.5rem;
+   width: 3rem;
+   text-align: center;
+ }
+
+.optionTown {
   font-size: 1.5rem;
   margin: 0.5rem;
-  width: 3rem;
+  width: 10rem;
   text-align: center;
+}
+
+.selectTown {
+  border: 1px solid black;
+  padding: 0.5rem;
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .select {
@@ -23,13 +39,68 @@
   cursor: pointer;
 }
 
+.arrow {
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 2px;
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(-0.05rem) rotate(315deg);
+  margin-right: 0.5rem;
+}
+
+.crossOut {
+  border-bottom: 1px solid black;
+  width: 2rem;
+  transform: translateY(-0.5rem);
+};
+
 @media (max-width: 768px) {
-  .option{
+  .option {
     font-size: 0.8rem;
-    margin: 0.3rem;
-    width: 3rem;
+    width: 1.5rem;
     textAlign: center;
+  }
+  .select {
+    border: 1px solid black;
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
 
+  .option:hover {
+    font-family: $font-base-semi-bold;
+    cursor: pointer;
+  }
 
+  .arrow {
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 2px;
+    width: 0.5rem;
+    height: 0.5rem;
+    transform: translateY(-0.05rem) rotate(315deg);
+    margin-right: 0.5rem;
+  }
+
+  .crossOut {
+    border-bottom: 1px solid black;
+    width: 2rem;
+    transform: translateY(-0.25rem);
+  }
+
+  .optionTown {
+    font-size: 0.8rem;
+    width: 10rem;
+    text-align: center;
+  }
+
+  .selectTown {
+    border: 1px solid black;
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
   }
 }

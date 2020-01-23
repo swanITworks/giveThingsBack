@@ -19,29 +19,15 @@ function FormStep3(props) {
 
     const handlerClick = () => {
         if (selectedOptionStep3Town !== 'choose' || inputsData.organization !== '') {
-           if (selectedArray.length !== 0) {
+            if (selectedArray.length !== 0) {
                 props.handlerStepUp()
             } else {
-               setWarning(null);
-                let newWarning2 = <div className='warning' style={{
-                    backgroundColor: '#FAD648',
-                    width: '40rem',
-                    textAlign: 'center',
-                    fontFamily: 'OpenSans',
-                    fontSize: '1.5rem',
-                    padding: '1rem'
-                }}>Please choose who you would you like to help.</div>;
+                setWarning(null);
+                let newWarning2 = <div className='warning'>Please choose who you would you like to help.</div>;
                 setWarning2(newWarning2)
             }
         } else {
-            let newWarning = <div className='warning' style={{
-                backgroundColor: '#FAD648',
-                width: '40rem',
-                textAlign: 'center',
-                fontFamily: 'OpenSans',
-                fontSize: '1.5rem',
-                padding: '1rem'
-            }}>Please choose localization or put name of foundation.</div>;
+            let newWarning = <div className='warning'>Please choose localization or put name of foundation.</div>;
             setWarning(newWarning)
         }
     };
@@ -55,14 +41,14 @@ function FormStep3(props) {
                     by their location or the purpose of their help.</p>
             </div>
             <div className='Step3'>
-                <div>
-                    <p>Step 3/4</p>
+                <div className='topStep3'>
+                    <p className='stepNumber'>Step 3/4</p>
                     <h2>Localization:</h2>
-                    <div className='selectTown'>
+                    <div>
                         <FormStep3SelectTowns selectedOptionStep3Town={selectedOptionStep3Town}
                                               handlerSelectStep3Town={handlerSelectStep3Town}/>
                     </div>
-                    <h3>Who do you want to help?</h3>
+                    <h3 className='helpTitle'>Who do you want to help?</h3>
                     <ul>
                         <li><WhomHelpRadio id='option1' handlerSelectStep3WhoTrue={handlerSelectStep3WhoTrue}
                                            handlerSelectStep3WhoFalse={handlerSelectStep3WhoFalse}
@@ -85,15 +71,19 @@ function FormStep3(props) {
                                            selectedOptionStep3Who={selectedOptionStep3Who.option5}
                                            text={optionsStep3[4]}/></li>
                     </ul>
-                    <h3>Enter the name of a specific organization (optional)</h3>
+                    <h3 className='helpTitle'>Enter the name of a specific organization (optional)</h3>
                     <input type='text' name='organization' value={inputsData.organization}
                            onChange={handlerInputOnChange}/>
                 </div>
-                {warning}
-                {warning2}
-                <div className='buttons'>
-                    <div className='button' onClick={props.handlerStepDown}>Back</div>
-                    <div className='button' onClick={handlerClick}>Next</div>
+                <div className='bottomStep3'>
+                    <div>
+                        {warning}
+                        {warning2}
+                    </div>
+                    <div className='buttons'>
+                        <div className='button' onClick={props.handlerStepDown}>Back</div>
+                        <div className='button' onClick={handlerClick}>Next</div>
+                    </div>
                 </div>
             </div>
         </>

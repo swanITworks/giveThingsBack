@@ -24,10 +24,10 @@ function FormStep2(props) {
                     things HERE.</p>
             </div>
             <div className='Step2'>
-                <div>
+                <div className='top'>
                     <p className='stepNumber'>Step 2/4</p>
                     <h2>Enter the number of 60l bags, which you packed in:</h2>
-                    <div style={{display: "flex", alignItems: "center"}}>
+                    <div className='labelWithSelect'>
                         <label>Quantity of 60l bags:</label>
                         <div className='selectContainer'>
                             <MySelect selectedOptionStep2={selectedOptionStep2}
@@ -35,10 +35,12 @@ function FormStep2(props) {
                         </div>
                     </div>
                 </div>
-                {warning}
-                <div className='buttons'>
-                    <div className='button' onClick={props.handlerStepDown}>Back</div>
-                    <div className='button' onClick={handlerClick}>Next</div>
+                <div className='bottom'>
+                    {warning}
+                    <div className='buttons'>
+                        <div className='button' onClick={props.handlerStepDown}>Back</div>
+                        <div className='button' onClick={handlerClick}>Next</div>
+                    </div>
                 </div>
             </div>
         </>

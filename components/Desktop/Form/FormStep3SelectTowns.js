@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useMediaQuery} from "react-responsive";
 
 const options = [
     {label: 'London'},
@@ -7,6 +8,16 @@ const options = [
     {label: 'Leeds'},
     {label: 'Blackpool'},
 ];
+
+const DesktopAndTablet = ({children}) => {
+    const isDesktop = useMediaQuery({minWidth: 768});
+    return isDesktop ? children : null
+};
+
+const Mobile = ({children}) => {
+    const isMobile = useMediaQuery({maxWidth: 767});
+    return isMobile ? children : null
+};
 
 function FormStep3SelectTowns(props) {
 
@@ -18,36 +29,9 @@ function FormStep3SelectTowns(props) {
         setIsClicked(prevState => !prevState);
     };
 
-    const select = {
-        border: '1px solid black',
-        padding: '0.5rem',
-        width: '15rem',
-        display: 'flex',
-        justifyContent: 'space-between',
-        cursor: 'pointer',
-        marginBottom: '1rem',
-    };
-
-    const arrow = {
-        borderLeft: '2px solid black',
-        borderBottom: '2px solid black',
-        borderRadius: '2px',
-        width: '1rem',
-        height: '1rem',
-        transform: "translateY(-0.05rem) rotate(315deg)",
-        marginRight: '0.5rem',
-    };
-
-    const crossOut = {
-        borderBottom: '1px solid black',
-        width: '2rem',
-        transform: 'translateY(-0.5rem)',
-    };
-
     const ShowOptions = (props) => {
         return options.map(item => {
-            return <div className='option' key={item.label} id={item.label} onClick={props.handlerSelect}
-                        style={{margin: '0.5rem', width: '3rem', textAlign: 'center'}}>{item.label}</div>
+            return <div className='optionTown' key={item.label} id={item.label} onClick={props.handlerSelect}>{item.label}</div>
         })
     };
 
@@ -58,33 +42,64 @@ function FormStep3SelectTowns(props) {
 
     return (
         <>
-            <div onClick={handlerShowOptions} style={select}>
-                <div style={{display: 'flex'}}>
-                    {selectedOptionStep3Town === 'choose' ?
-                        <>
-                            <div style={crossOut}></div>
-                            <div style={{fontSize: '1.5rem'}}>{selectedOptionStep3Town}</div>
-                            <div style={crossOut}></div>
-                        </>
-                        : <div style={{fontSize: '1.5rem'}}>{selectedOptionStep3Town}</div>}
+            <DesktopAndTablet>
+                <div onClick={handlerShowOptions} className='select'>
+                    <div style={{display: 'flex'}}>
+                        {selectedOptionStep3Town === 'choose' ?
+                            <>
+                                <div className='crossOut'></div>
+                                <div style={{fontSize: '1.5rem'}}>{selectedOptionStep3Town}</div>
+                                <div className='crossOut'></div>
+                            </>
+                            : <div style={{fontSize: '1.5rem'}}>{selectedOptionStep3Town}</div>}
+                    </div>
+                    <div className='arrow'></div>
                 </div>
-                <div style={arrow}></div>
-            </div>
-            {isClicked == true ? <div onMouseLeave={handlerShowOptions} style={{
-                display: 'flex',
-                flexDirection: 'column',
-                textAlign: 'right',
-                border: '1px solid black',
-                alignItems: 'flexEnd',
-                justifyContent: 'flexEnd',
-                position: 'absolute',
-                transform: 'translateY(0.0rem)',
-                width: '15rem',
-                backgroundColor: '#F0F1F1',
-                zIndex: 1,
-            }}><ShowOptions handlerSelect={(e) => {
-                handlerTwoFunctions(e.target)
-            }}/></div> : null}
+                {isClicked == true ? <div onMouseLeave={handlerShowOptions} style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    textAlign: 'right',
+                    border: '1px solid black',
+                    alignItems: 'flexEnd',
+                    justifyContent: 'flexEnd',
+                    position: 'absolute',
+                    transform: 'translateY(0.0rem)',
+                    width: '15rem',
+                    backgroundColor: '#F0F1F1',
+                    zIndex: 1,
+                }}><ShowOptions handlerSelect={(e) => {
+                    handlerTwoFunctions(e.target)
+                }}/></div> : null}
+            </DesktopAndTablet>
+            <Mobile>
+                <div onClick={handlerShowOptions} className='selectTown'>
+                    <div style={{display: 'flex'}}>
+                        {selectedOptionStep3Town === 'choose' ?
+                            <>
+                                <div className='crossOut'></div>
+                                <div style={{fontSize: '0.8rem'}}>{selectedOptionStep3Town}</div>
+                                <div className='crossOut'></div>
+                            </>
+                            : <div style={{fontSize: '0.8rem'}}>{selectedOptionStep3Town}</div>}
+                    </div>
+                    <div className='arrow'></div>
+                </div>
+                {isClicked == true ? <div onMouseLeave={handlerShowOptions} style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    textAlign: 'right',
+                    border: '1px solid black',
+                    alignItems: 'flexEnd',
+                    justifyContent: 'flexEnd',
+                    marginTop: '0.2rem',
+                    position: 'absolute',
+                    transform: 'translateY(0.2rem)',
+                    backgroundColor: 'white',
+                    zIndex: 1,
+                }}><ShowOptions handlerSelect={(e) => {
+                    handlerTwoFunctions(e.target)
+                }}/></div> : null}
+            </Mobile>
         </>
     )
 }
