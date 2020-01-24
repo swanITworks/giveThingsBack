@@ -19,13 +19,13 @@ div.mobileHomeSignIn {
     font-family: OpenSansSemiBold;
   }
 
-  button {
+  .button {
     background-color: $columnsColor;
     color: white;
     padding: 1rem;
     font-family: OpenSansSemiBold;
     font-size: 1.2rem;
     border-radius: 0.5rem;
-    margin-right: 2rem;
+    text-decoration: none;
   }
 }

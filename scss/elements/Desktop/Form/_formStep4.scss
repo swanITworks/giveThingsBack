@@ -1,7 +1,7 @@
 @import "../../../settings/colors";
 @import "../../../settings/fonts";
 
-@media(min-width: 769px) {
+@media(min-width: 768px) {
 
   .FormStep4Warning {
     background-color: $columnsColor;
@@ -20,7 +20,7 @@
     }
   }
 
-  .Step4 {
+  .step4 {
     background-image: url('/assets/Background-Form.jpg');
     background-repeat: no-repeat;
     background-size: cover;

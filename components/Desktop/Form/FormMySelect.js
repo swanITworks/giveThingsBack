@@ -92,7 +92,10 @@ function MySelect(props) {
                     justifyContent: 'flexEnd',
                     marginTop: '0.2rem',
                     position: 'absolute',
-                    transform: 'translateY(2rem)',
+                    transform: 'translateY(0.2rem)',
+                    marginLeft: '9rem',
+
+
                 }}><ShowOptions handlerSelect={(e) => {
                     handlerTwoFunctions(e.target)
                 }}/></div> : null}

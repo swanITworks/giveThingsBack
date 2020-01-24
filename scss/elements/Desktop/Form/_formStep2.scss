@@ -1,86 +1,97 @@
 @import "../../../settings/colors";
 @import "../../../settings/fonts";
 
-.FormStep2Warning {
-  background-color: $columnsColor;
-  padding: 2rem 4rem;
+@media(min-width: 768px) {
 
-  h2 {
-    font-size: 2.25rem;
-    font-family: $font-base-semi-bold;
-    line-height: 2.5rem;
-  }
+  .FormStep2Warning {
+    background-color: $columnsColor;
+    padding: 2rem 4rem;
 
-  p {
-    font-size: 1.4rem;
-    line-height: 1.7rem;
-    font-family: OpenSans;
-  }
-}
-
-.Step2 {
-  background-image: url('/assets/Background-Form.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 85%;
-  padding: 2rem 4rem;
-  box-sizing: border-box;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  .selectContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  p {
-    font-family: OpenSansLight;
-    font-size: 1.5rem;
-    margin-bottom: 5rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-    font-family: $font-base-semi-bold;
-    margin-bottom: 2.5rem;
-  }
-
-  label {
-    font-size: 1rem;
-    font-family: $font-base-light;
-    margin-left: 0rem;
-  }
-
-  div.warning {
-    justify-self: flex-end;
-    margin-top: 23rem;
-    background-color: #FAD648;
-    tex-align: center;
-    max-width: 40rem;
-    font-family: OpenSans;
-    font-size: 2rem;
-    padding: 1rem;
-  }
-
-  .buttons {
-    display: flex;
-    margin-top: 1rem;
-
-    .button {
-      justify-self: flex-end;
-      padding: 1.5rem 2rem;
-      border: 1px solid $mainFontColor;
-      width: 5.9rem;
-      font-size: 1.5rem;
-      font-family: $font-base-light;
-      text-align: center;
-      cursor: pointer;
-      margin-right: 2rem;
+    h2 {
+      font-size: 2.25rem;
+      font-family: $font-base-semi-bold;
+      line-height: 2.5rem;
     }
 
+    p {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+      font-family: OpenSans;
+    }
+  }
+
+  .Step2 {
+    background-image: url('/assets/Background-Form.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 85%;
+    padding: 2rem 4rem;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      .labelWithSelect {
+        display: flex;
+        align-items: center;
+      }
+
+      .selectContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      p {
+        font-family: OpenSansLight;
+        font-size: 1.5rem;
+        margin-bottom: 5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        font-family: $font-base-semi-bold;
+        margin-bottom: 2.5rem;
+      }
+
+      label {
+        font-size: 2rem;
+        font-family: $font-base-light;
+        margin-left: 0rem;
+      }
+    }
+
+    div.warning {
+      justify-self: flex-end;
+      margin-top: 23rem;
+      background-color: #FAD648;
+      tex-align: center;
+      max-width: 40rem;
+      font-family: OpenSans;
+      font-size: 2rem;
+      padding: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      margin-top: 1rem;
+
+      .button {
+        justify-self: flex-end;
+        padding: 1.5rem 2rem;
+        border: 1px solid $mainFontColor;
+        width: 5.9rem;
+        font-size: 1.5rem;
+        font-family: $font-base-light;
+        text-align: center;
+        cursor: pointer;
+        margin-right: 2rem;
+      }
+    }
   }
 }
 
@@ -108,8 +119,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 2rem 3rem;
 
-    .labelWithSelect{
+    .labelWithSelect {
       display: flex;
       align-items: center;
     }
@@ -155,7 +167,8 @@
     p.stepNumber {
       display: none;
     }
-    div.warning{
+
+    div.warning {
       background-color: #FAD648;
       max-width: 16rem;
       tex-align: center;

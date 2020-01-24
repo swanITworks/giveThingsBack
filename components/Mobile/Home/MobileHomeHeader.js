@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const MobileHomeHeader = () => {
     return (
@@ -6,7 +7,7 @@ const MobileHomeHeader = () => {
           <h2>Do you have things at home that you don't know what to do?</h2>
           <h1>GIVE THEM TO THE NEEDED</h1>
           <h3> - quickly and in trusted hands</h3>
-          <button>SING IN</button>
+          <Link exact to="/signIn" className='button'>SING IN</Link>
       </div>
     )
 };

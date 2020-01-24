@@ -24,7 +24,7 @@ div.mobileHomeHeader {
     margin-bottom: 1rem;
     align-self: flex-start;
   }
-  button {
+  .button {
     background-color: $columnsColor;
     color: white;
     padding: 1rem;
@@ -33,5 +33,6 @@ div.mobileHomeHeader {
     border-radius: 0.5rem;
     align-self: flex-end;
     margin-right: 2rem;
+    text-decoration: none;
   }
 }
