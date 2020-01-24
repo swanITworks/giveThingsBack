@@ -11,7 +11,6 @@ function FormStepsSuccess(props) {
                         <h2>Thank you for submitting the form
                             We will send any by e-mail
                             pickup information.</h2>
-                        <img src='../../../assets/Decoration.svg'/>
                     </div>
                 </div>
             </div>

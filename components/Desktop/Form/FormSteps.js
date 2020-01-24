@@ -204,6 +204,7 @@ function FormSteps(props) {
     return (
         <div className='formSteps'>
             <Mobile>
+                {step!==6 ?
                 <div className='mobileFormStepsHeader'>
                     <div className='mobileFormStepsTitle'>
                         <h2>Give back the things you don't want anymore for people that need
@@ -238,6 +239,7 @@ function FormSteps(props) {
                         </div>
                     </div>
                 </div>
+                    : null};
             </Mobile>
             <form onSubmit={handlerSubmit} className='steps'>
                 {showsStep(step)}

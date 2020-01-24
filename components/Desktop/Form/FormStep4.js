@@ -63,10 +63,10 @@ function FormStep4(props) {
                 <h2>Important!</h2>
                 <p>Enter the address and date of collection the item.</p>
             </div>
-            <div className='Step4'>
+            <div className='step4'>
                 <div>
-                    <p>Step 4/4</p>
-                    <h2>Provide the address and date of receipt by courier</h2>
+                    <p className='stepNumber'>Step 4/4</p>
+                    <h2 className='stepNumber'>Provide the address and date of receipt by courier</h2>
                     <div className='realizationData'>
                         <div className='address'>
                             <h3>Collection address</h3>

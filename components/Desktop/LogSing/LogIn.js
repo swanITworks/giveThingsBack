@@ -8,7 +8,11 @@ function LogIn(props) {
 
     return (
         <div className='logIn'>
-            <HomeHeaderMenu isLogIn={props.isLogIn} logInHandler={props.logInHandler} logInEmail={logInData.email}/>
+            <div className='leftSide'>
+            </div>
+            <div className='rightSide'>
+                <HomeHeaderMenu isLogIn={props.isLogIn} logInHandler={props.logInHandler} logInEmail={logInData.email}/>
+            </div>
             <div className='logInHeader'>
                 <h1>Log In</h1>
                 <img src='../../../assets/Decoration.svg'/>

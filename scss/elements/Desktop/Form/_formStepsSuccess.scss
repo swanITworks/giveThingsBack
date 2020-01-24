@@ -1,26 +1,58 @@
 @import "../../../settings/colors";
 @import "../../../settings/fonts";
 
-.StepsSuccess {
-  background-image: url('/assets/Background-Form.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 85%;
-  box-sizing: border-box;
-  height: 100vh;
-  .wrapper{
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    div {
+@media(min-width: 769px) {
+
+  .StepsSuccess {
+    background-image: url('/assets/Background-Form.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 85%;
+    box-sizing: border-box;
+    height: 100vh;
+
+    .wrapper {
       width: 60%;
-      h2 {
-        font-size: 2.6rem;
-        font-family: $font-base-light;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+
+      div {
+        width: 60%;
+
+        h2 {
+          font-size: 2.6rem;
+          font-family: $font-base-light;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .StepsSuccess {
+    box-sizing: border-box;
+    min-height: 21.5rem;
+    padding: 1rem 2rem;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      div {
+        width: 60%;
+
+        h2 {
+          font-size: 1rem;
+          font-family: $font-base-light;
+        }
       }
     }
   }

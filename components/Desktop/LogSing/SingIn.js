@@ -126,7 +126,11 @@ function SingIn(props) {
 
     return (
         <div className='signIn'>
-            <HomeHeaderMenu isLogIn={isLogIn}/>
+            <div className='leftSide'>
+            </div>
+            <div className='rightSide'>
+                <HomeHeaderMenu isLogIn={isLogIn}/>
+            </div>
             <div className='signInHeader'>
                 <h1>Sign In</h1>
                 <img src='../../../assets/Decoration.svg'/>

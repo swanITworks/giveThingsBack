@@ -1,10 +1,27 @@
 .formHeader {
   display: flex;
   width: 100%;
-  background-image: url('/assets/Form-Hero-Image.jpg');
-  background-position: -25%;
-  background-repeat: no-repeat;
-  background-size: contain;
   height: 100vh;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  .leftSide {
+    width: 53%;
+
+    .image {
+      background-image: url('/assets/Form-Hero-Image.jpg');
+      background-position: right;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+    }
+  }
+  .rightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 47%;
+    margin-right: 3rem;
+    height: 100%;
+  }
 }

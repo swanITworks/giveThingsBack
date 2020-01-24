@@ -42,7 +42,7 @@ const Mobile = ({children}) => {
 
 function App() {
     const [logInData, setLogInData] = useState(logInDataTemplate);
-    const [isLogIn, setIsLogIn] = useState(true);
+    const [isLogIn, setIsLogIn] = useState(false);
     const db = firebase.firestore();
     const [burgerMenuIsOn, setBurgerMenuIsOn] = useState(null);
 
@@ -198,7 +198,8 @@ function App() {
                 <Route exact path='/form'>
                     {isLogIn === true ?
                         <>
-                            <MobileHomeMenu/>
+                            <MobileHomeMenu isLogIn={isLogIn} logOutHandler={logOutHandler} location={location} logInEmail={logInData.email}
+                                            handlerMenuClick={handlerMenuClick} burgerMenuIsOn={burgerMenuIsOn}/>
                             <FormSteps isLogIn={isLogIn} logOutHandler={logOutHandler} logInLogin={logInData.login}
                                        logInPass={logInData.password} logInEmail={logInData.email}/>
                             <MobileHomeContact/>
