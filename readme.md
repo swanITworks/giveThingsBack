@@ -18,8 +18,13 @@ Create an application in accordance with the prototype.
 
 #What i did ?
 
-1) I created git repository on GitHub
-2) I installed all packages: Webpack, Babel, React, React-Router, Sass and configured webpack.config.js
-3) I made folders structure of project.  
+1) Created git repository on GitHub
+2) Installed all packages: Webpack, Babel, React, React-Router, Sass and configured webpack.config.js
+3) Made folders structure of project.  
+4) Created page layouts with links base on React-Router
+5) Log IN / Register account form
+6) Paggination with list of Foundations if there are more then 3 organisations ( the data of organisation is fetched from firebase )
+7) Form with validation to order collection of stuff ( available only for logged user )
+8) bespoke select form inputs
 
 
