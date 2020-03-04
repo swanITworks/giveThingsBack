@@ -25,6 +25,6 @@ Create an application in accordance with the prototype.
 5) Log IN / Register account form
 6) Paggination with list of Foundations if there are more then 3 organisations ( the data of organisation is fetched from firebase )
 7) Form with validation to order collection of stuff ( available only for logged user )
-8) bespoke select form inputs
+8) Bespoke select form inputs.
 
 
